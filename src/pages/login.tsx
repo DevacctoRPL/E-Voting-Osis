@@ -1,45 +1,39 @@
 // src/pages/Login.tsx
+import Voting from '../../public/Voting-amico.svg'
 import React from 'react';
 import { FiLock, FiUser } from 'react-icons/fi';
 
 const Login: React.FC = () => {
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-200">
-      <div className="flex bg-white shadow-lg overflow-hidden" style={{ width: '900px', height: '500px' }}>
-        <div className="w-1/3 m-6 ml-20 bg-red-600 rounded-3xl flex flex-col justify-center items-center p-8">
-          <img src="public/Voting-amico.svg" alt="Voting Illustration" className="h-72 w-auto" />
+    <main className="flex gap-10 w-screen h-screen items-center justify-center overflow-hidden">
+      <section className="w-[70%] h-[80%] flex items-center justify-between ">
+        <div id="Thumbnail" className="bg-gradient-to-t from-[#a61603] from-60% to-[#d32710] rounded-3xl h-[95%] w-[50%] items-center justify-center">
+          <img src={Voting} alt="Voting Amico" />
         </div>
-        <div className="w-1/2 p-8 flex flex-col justify-center">
-          <h1 className="text-sm font-normal mb-4">PENUS <span className="text-red-600">E-VOTING</span></h1>
-          <h2 className="text-6xl font-bold mb-6">Masuk</h2>
-          <form>
-            <div className="mb-4 relative">
-              <FiUser className="absolute left-3 top-3 text-gray-400" />
-              <input
-                type="text"
-                placeholder="NIS/NIG"
-                className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
-              />
-            </div>
-            <div className="mb-6 relative">
-              <FiLock className="absolute left-3 top-3 text-gray-400" />
-              <input
-                type="password"
-                placeholder="Kata Sandi"
-                className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-1/2 px-4 py-2 bg-red-600 text-white font-semibold rounded-3xl shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-            >
-              Masuk
-            </button>
-          </form>
-          <p className="mt-6 text-sm text-gray-600 text-center font-semibold">Powered by <span className="text-red-600">DEVACCTO RPL</span></p>
-        </div>
-      </div>
-    </div>
+          <div id="Form" className="h-full w-[45%] flex flex-col items-stretch justify-center">
+            <form className="mb-6 w-full grow flex flex-col justify-center gap-3">
+            <h1 className="text-[3rem] text-white font-semibold mb-20 text-left mt-3 text-2xl">
+              <span className="text-[#d2270b]">PENUS</span> E-VOTING
+            </h1> 
+              <h2 className="text-4xl text-white font-bold ml-2 text-left mt-1">Masuk</h2>
+              <div className="mb-3">
+                <label htmlFor="nisNig" className="block text-white text-2xl font-medium ml-2 mb-2 text-left">NIS/NIG</label>
+                <input type="text" id="nisNig" className="w-[100%] rounded-2xl bg-gray-200 px-3 py-2 text-black border border-gray-300 focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300" />
+              </div>
+  
+              <div className="mb-3">
+                <label htmlFor="password" className="block text-white text-2xl font-medium ml-2 mb-2 text-left">Kata Sandi</label>
+                <input type="password" id="password" className="w-[100%] rounded-2xl bg-gray-200 px-3 py-2 text-gray-700 border border-gray-300 focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300" />
+              </div>
+  
+              <div className="mt-6">
+                <button type="submit" className="w-1/2 bg-[#D22713] text-white font-bold py-2 px-4 rounded-2xl float-left">Masuk</button>
+              </div>
+            </form>
+            <h5 className="text-xl font-semibold text-white mb-6 text-left">Powered by <span className="font-bold text-[#D22713]">DEVACCTO RPL</span></h5>
+          </div>
+        </section>
+      </main>
   );
 };
 
