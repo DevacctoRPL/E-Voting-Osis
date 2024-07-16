@@ -6,7 +6,7 @@ import Website from '../../public/web.png';
 import Tiktok from '../../public/tiktok.png'
 
 
-function Footer () {
+const Footer: React.FC = () => {
 
     return (
         <footer className='bg-gradient-to-t from-[#a61603] from-10% to-[#1F2937] mt-5 flex flex-col items-center justify-between text-[#d9d9d9] p-4 h-56' >
