@@ -9,10 +9,10 @@ import Tiktok from '../../public/tiktok.png'
 const Footer: React.FC = () => {
 
     return (
-        <footer className='bg-gradient-to-t from-[#a61603] from-10% to-[#1F2937] mt-5 flex flex-col items-center justify-between text-[#d9d9d9] p-4 h-56' >
-        <div className='flex'>
-            <img src={Penus} alt="Penus" className='w-16'/>
-            <p className='align-bottom self-center text-lg text-[#d9d9d9] font-semibold'>SMK PLUS PELITA NUSANTARA</p>
+        <footer className='bg-gradient-to-t from-merah-penus from-5% mt-5 flex flex-col items-center justify-between text-putih-putih p-4 h-72' >
+        <div className='flex mt-10'>
+            <img src={Penus} alt="Penus" className='w-14'/>
+            <p className='align-bottom self-center text-base text-[#d9d9d9] font-semibold'>SMK PLUS PELITA NUSANTARA</p>
         </div>
         <div className=''>
             <ul className='flex gap-8 mt-5'>

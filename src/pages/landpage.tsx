@@ -78,11 +78,11 @@ const Landpage: React.FC = () => {
 
           <div className="flex justify-center items-center mt-14">
             <div className="flex space-x-8 gap-32">
-              <div className="flex flex-col items-center p-4 rounded-lg bg-yellow-300 w-64 h-80 duration-300 hover:drop-shadow-kuning-osis hover:scale-105 cursor-pointer">
+              <div className="flex flex-col items-center p-4 rounded-lg shadow-osis bg-yellow-300 w-64 h-80 duration-300 hover:drop-shadow-kuning-osis hover:scale-105 cursor-pointer">
                 <h3 className="text-xl font-bold text-center">OSIS</h3>
                 <img src={Osis} alt="osis" className="w-64 h-60 mb-4" />
               </div>
-              <div className="flex flex-col items-center p-4 rounded-lg bg-blue-300 w-64 h-80 duration-300 hover:drop-shadow-biru-mpk hover:scale-105 cursor-pointer">
+              <div className="flex flex-col items-center p-4 rounded-lg shadow-mpk bg-blue-300 w-64 h-80 duration-300 hover:drop-shadow-biru-mpk hover:scale-105 cursor-pointer">
                 <h3 className="text-xl font-bold text-center">MPK</h3>
                 <img src={Mpk} alt="mpk" className="w-64 h-60 mb-4" />
               </div>

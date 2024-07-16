@@ -12,6 +12,10 @@ export default {
         'kuning-lampu': '0 0 20px rgba(253, 224, 71, 1)',
         'merah-penus-bayangan': '0 0 15px rgba(211, 39, 16, 0.4)',
       },
+      boxShadow: {
+        'osis': '0 0 25px rgba(253, 224, 71, 0.4)',
+        'mpk': '0 0 25px rgba(147, 197, 253, 0.4)',
+      },
       fontFamily: {
         'poppins': ['Poppins']
       },

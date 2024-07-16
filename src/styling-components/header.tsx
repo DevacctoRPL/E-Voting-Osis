@@ -30,7 +30,7 @@ const Head: React.FC = () => {
         </h3>
         <div className='relative group flex flex-col items-center h-auto w-auto'>
   <img src={User} id='showNav' className='rounded-full cursor-pointer' alt='user' />
-  <aside className='flex flex-col overflow-hidden bg-putih-putih max-h-0 top-14 rounded-lg absolute group-hover:max-h-60 group-hover:p-3 duration-500 transition-all ease-in-out'>
+  <aside className='flex flex-col overflow-hidden bg-putih-putih max-h-0 top-14 rounded-3xl absolute group-hover:max-h-60 group-hover:px-8 group-hover:py-3 duration-500 transition-all ease-in-out'>
     <ul className='text-laut-dalam'>
       <li className='w-full text-center ' key="username">Username</li>
       <li className='w-full text-center border-b-2' key="kelas">Kelas</li>

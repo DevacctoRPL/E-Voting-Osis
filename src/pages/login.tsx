@@ -33,14 +33,14 @@ const Login: React.FC = () => {
             </div>
 
             <div className="mt-6">
-              <button type="submit" className="w-1/2 bg-[#D22713] text-white font-bold py-2 px-4 rounded-full float-left">
+              <button type="submit" className="w-1/2 bg-merah-penus text-white font-bold py-2 px-4 rounded-full float-left duration-100 hover:drop-shadow-merah-penus-bayangan hover:scale-105">
                 Masuk
               </button>
             </div>
           </form>
 
           <h5 className="text-xl font-semibold mb-8 text-putih-putih text-left">
-            Powered by <span className="font-bold text-[#D22713]">DEVACCTO RPL</span>
+            Powered by <span className="font-bold text-merah-penus">DEVACCTO RPL</span>
           </h5>
         </div>
       </section>
