@@ -26,6 +26,8 @@ export default {
         'merah-penus' : '#D32710',
         'merah-gelap-penus': '#A61603',
         'putih-putih': '#D9D9D9',
+        'merah-tergelap' : '#6D1408',
+        'gelap' : '#1F2937',
       },
       fontSize: {
         '7.5xl': '7rem',

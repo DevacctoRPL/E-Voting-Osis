@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                 </li>
             </ul>
         </div>
-        <h5 className='text-xs '>© 2024 SMK PLUS PELITA NUSANTARA™. All Rights Reserved.</h5>
+        <h5 className='text-xs '>© 2024SMK PLUS PELITA NUSANTARA™. All Rights Reserved.</h5>
     </footer>
     )
 }

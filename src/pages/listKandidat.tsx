@@ -4,7 +4,7 @@ import Paslon1 from "/paslon1.png";
 import Paslon2 from "/mark.png";
 import Paslon3 from "/sitorus.jpg";
 import React from "react";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const candidates = [
   {
@@ -24,7 +24,7 @@ const candidates = [
   },
 ];
 
-const ListKandidat = () => {
+const ListKandidat: React.FC = () => {
 
   const navigate = useNavigate();
   const pilih = () => {

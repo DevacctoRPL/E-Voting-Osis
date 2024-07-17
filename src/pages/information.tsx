@@ -5,7 +5,7 @@ import Arrow from '/arrow.png';
 // import Head from "../styling-components/header";
 import Footer from '../styling-components/footer';
 
-const Information = () => {
+const Information: React.FC = () => {
   return (
     <>
       <body className='mb-[10rem] font-poppins'>

@@ -28,12 +28,12 @@ const Landpage: React.FC = () => {
         {/* Transparent background text */}
         <div className="absolute inset-0 flex flex-col justify-center items-stretch z-[-1] pointer-events-none">
           <div className="flex flex-col items-start justify-center h-full">
-            <h1 className="text-[15rem] text-[#d9d9d9] opacity-10 font-extrabold">
+            <h1 className="text-[15rem] text-putih-putih opacity-10 font-extrabold">
               PENUS
             </h1>
           </div>
           <div className="flex flex-col items-end justify-center h-full">
-            <h1 className="text-[15rem] text-[#d9d9d9] opacity-10 font-extrabold">
+            <h1 className="text-[15rem] text-putih-putih opacity-10 font-extrabold">
               E-VOTING
             </h1>
           </div>

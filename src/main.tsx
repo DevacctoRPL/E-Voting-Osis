@@ -8,6 +8,7 @@ import Login from './pages/login';
 import Landpage from './pages/landpage';
 import ListKandidat from './pages/listKandidat';
 import Information from './pages/information';
+import Admin from './pages/adminDashboard';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/information",
     element: <Information/>
+  },
+  {
+    path: "/Admin",
+    element: <Admin />
   }
 ])
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
