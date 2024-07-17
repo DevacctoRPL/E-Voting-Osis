@@ -40,13 +40,15 @@ const Landpage: React.FC = () => {
             bawah untuk memilih kandidat MPK dan OSIS favorit Anda atau klik
             tombol di bawah.
           </p>
-          <button className="bg-merah-penus px-12 py-4 rounded-3xl text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_60%)] duration-200 hover:drop-shadow-merah-penus-bayangan hover:scale-105">
-            <span>Saya Ingin Voting Sekarang</span>
-          </button>
+          <a href="#bijak">
+            <button className="bg-merah-penus px-12  py-4 rounded-3xl text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_60%)] duration-200 hover:drop-shadow-merah-penus-bayangan hover:scale-105">
+              <span>Saya Ingin Voting Sekarang</span>
+            </button>
+          </a>
         </div>
       </div>
 
-      <div className="h-screen w-screen flex justify-center items-center p-72">
+      <div id="bijak" className="h-screen w-screen flex justify-center items-center p-72">
         <div className="relative">
           <h1 className="text-white text-4xl font-bold text-center">
             Pilih-lah Dengan Cerdas
