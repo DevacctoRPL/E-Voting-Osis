@@ -9,78 +9,47 @@ const candidates = [
   {
     id: 1,
     name: "Elon Musk",
-    img: Paslon1, // Directly assign the imported image
+    img: Paslon1,
   },
   {
     id: 2,
     name: "Dillon Donovan Damaswara Putra",
-    img: Paslon2, // Directly assign the imported image
+    img: Paslon2,
   },
   {
     id: 3,
-    name: "Gojoj Simanjuntak Junior ",
-    img: Paslon3, // Directly assign the imported image
+    name: "Gojoj Simanjuntak Junior",
+    img: Paslon3,
   },
 ];
 
 const ListKandidat = () => {
   return (
     <>
-    <Head/>
-     <div className="bg-laut-dalam text-white min-h-screen flex flex-col items-center py-10 ">
-      <div className="flex items-center text-white">
-        <div className="h-px w-20 bg-white"></div>
-        <p className="text-lg mx-4">
-          Tentukan Kandidat Terbaikmu dan Klik Gambar Dibawah
-        </p>
-        <div className="h-px w-20 bg-white"></div>
+      <Head />
+      <div className=" text-white min-h-screen w-screen flex flex-col items-center justify-center py-10">
+        <div className="flex items-center text-white">
+          <div className="h-px w-20 bg-white"></div>
+          <p className="text-lg mx-4">
+            Tentukan Kandidat Terbaikmu dan Klik Gambar Dibawah
+          </p>
+          <div className="h-px w-20 bg-white"></div>
+        </div>
+        <div className="flex mt-8 space-x-4 gap-32">
+          {candidates.map((candidate) => (
+            <div key={candidate.id} className="drop-shadow-putih-cahaya flex flex-col items-center bg-gradient-to-t from-merah-gelap-penus to-merah-penus to-40% rounded-lg justify-end px-1 w-52 h-64 border-solid border-2 relative">
+              <div id="dot" className="flex h-[50px] w-[50px] bg-laut-dalam border-solid rounded-full z-10 absolute -top-2 -left-3 items-center justify-center">
+                <h3 className="w-full flex items-center justify-center text-center">{candidate.id}</h3>
+              </div>
+              <img src={candidate.img} alt={candidate.name} className=" object-cover relative rounded-md" />
+              <p className="mt-4 text-base text text-center w-full absolute -bottom-14 ">{candidate.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="flex mt-8 space-x-4 gap-32">
-        {candidates.map((candidate) => (
-          <div
-            key={candidate.id}
-            className="flex-col items-center bg-red-500 rounded-lg p-5 w-40 border-solid border-2 relative"
-          >
-            <div
-        id="dot"
-        className="flex h-[50px] w-[50px] bg-laut-dalam border-solid border-2 rounded-full z-10 absolute -top-6 -left-6 items-center justify-center">
-          <h3 className="w-full flex items-center justify-center text-center">{candidate.id}</h3>
-          </div> 
-            <img
-              src={candidate.img}
-              alt={candidate.name}
-              className="w-32 h-32 object-cover rounded-lg "
-            />
-            <p className="mt-4 text-xl font-semibold break-words text-center">{candidate.name}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
-   
   );
 };
 
 export default ListKandidat;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,9 +1,9 @@
-import Penus from '../../public/penus.png';
-import Instagram from '../../public/instagram.png';
-import Youtube from '../../public/youtube.png';
-import Facebook from '../../public/facebook.png';
-import Website from '../../public/web.png';
-import Tiktok from '../../public/tiktok.png'
+import Penus from '/penus.png';
+import Instagram from '/instagram.png';
+import Youtube from '/youtube.png';
+import Facebook from '/facebook.png';
+import Website from '/web.png';
+import Tiktok from '/tiktok.png'
 
 
 const Footer: React.FC = () => {

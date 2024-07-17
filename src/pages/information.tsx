@@ -9,8 +9,8 @@ const Information = () => {
       </div>
 
       <div id="photocard" className="h-screen w-screen relative">
-        <div className="z-2 w-[490px] h-[549px] bg-red-500 mt-[14.5rem] ml-[10rem] rounded-xl">
-        <img src={Paslon1} alt="" className='z-3 absolute' />
+        <div className="z-2 w-[490px] h-[549px] bg-red-500 mt-[14.5rem] ml-[10rem] rounded-xl ">
+        <img src={Paslon1} alt="" className='mb-10' />
         </div>
       </div>
 
