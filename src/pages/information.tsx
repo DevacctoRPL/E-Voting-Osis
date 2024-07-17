@@ -2,7 +2,7 @@ import Paslon1 from '/paslon1.png';
 import React from 'react';
 import Arrow from '/arrow.png';
 // Styling Component
-import Head from "../styling-components/header";
+// import Head from "../styling-components/header";
 import Footer from "../styling-components/footer";
 
 const Information = () => {

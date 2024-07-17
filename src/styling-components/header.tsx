@@ -21,7 +21,7 @@ const Head: React.FC = () => {
   }, []);
 
   return (
-    <nav className="bg-transparent transition-all duration-600 ease-in-out fixed top-0 w-full z-50 p-2 border-b-[1px] border-slate-700/20">
+    <nav className="bg-transparent transition-all duration-600 ease-in-out sticky top-0 w-full z-50 p-2 border-b-[1px] border-slate-700/20">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="">
           <img src={Penus} alt="Logo" className="w-16" />
