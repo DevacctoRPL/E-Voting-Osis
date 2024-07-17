@@ -7,6 +7,7 @@ import './index.css';
 import Login from './pages/login';
 import Landpage from './pages/landpage';
 import ListKandidat from './pages/listKandidat';
+import Information from './pages/information';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/list-kandidat",
     element: <ListKandidat />
+  },
+  {
+    path: "/information",
+    element: <Information/>
   }
 ])
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
