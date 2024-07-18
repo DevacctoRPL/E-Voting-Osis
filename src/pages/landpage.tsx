@@ -11,10 +11,16 @@ import Mpk from "/mpk.png";
 // Styling Component
 import Head from "../styling-components/header";
 import Footer from "../styling-components/footer";
+import { useQuery} from "@tanstack/react-query";
+import { cobarequest } from "../api/api";
 
 
 const Landpage: React.FC = () => {
   const navigate = useNavigate();
+  const {data, isLoading, isError} = useQuery({
+    queryKey: ['cobarequest'],
+   queryFn: () => cobarequest(),
+  })
 
   const pilih = () => {
     navigate('/list-kandidat'); 
@@ -29,9 +35,10 @@ const Landpage: React.FC = () => {
         <div className="absolute inset-0 flex flex-col justify-center items-stretch z-[-1] pointer-events-none">
           <div className="flex flex-col items-start justify-center h-full">
             <h1 className="text-[15rem] text-putih-putih opacity-10 font-extrabold">
-              PENUS
+              PENUS 
             </h1>
           </div>
+
           <div className="flex flex-col items-end justify-center h-full">
             <h1 className="text-[15rem] text-putih-putih opacity-10 font-extrabold">
               E-VOTING
@@ -45,9 +52,8 @@ const Landpage: React.FC = () => {
             E-VOTING
           </h1>
           <p className="text-putih-putih mb-6">
-            Selamat datang ke dalam program e-voting PENUS. Silahkan geser ke
-            bawah untuk memilih kandidat MPK dan OSIS favorit Anda atau klik
-            tombol di bawah.
+          {isLoading ? "bangsat" : JSON.stringify(data)}  
+          {isError ? "error cug" : " ah aman ah"}
           </p>
           <a href="#bijak">
             <button className="bg-merah-penus px-12  py-4 rounded-3xl text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_60%)] duration-200 hover:drop-shadow-merah-penus-bayangan hover:scale-105">

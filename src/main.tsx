@@ -9,6 +9,7 @@ import Landpage from './pages/landpage';
 import ListKandidat from './pages/listKandidat';
 import Information from './pages/information';
 import Admin from './pages/adminDashboard';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const router = createBrowserRouter([
   {
@@ -32,9 +33,12 @@ const router = createBrowserRouter([
     element: <Admin />
   }
 ])
+const query = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={query}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
