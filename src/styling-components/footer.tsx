@@ -17,23 +17,23 @@ const Footer: React.FC = () => {
         <div className=''>
             <ul className='flex gap-8 mt-5'>
                 <li>
-                    <img src={Instagram} className='rounded-full w-9' alt='ig'/>
+                    <a href="https://www.instagram.com/smkpluspelitanusantara/"><img src={Instagram} className='rounded-full w-9' alt='instagram'/></a>
                 </li>
                 <li>
-                    <img src={Youtube} className='rounded-full w-9' alt='yt'/>
+                    <a href="https://www.youtube.com/@smkpluspelitanusantara9719"><img src={Youtube} className='rounded-full w-9' alt='youtube'/></a>
                 </li>
                 <li>
-                    <img src={Facebook} className='rounded-full w-9' alt='fb'/>
+                    <a href="#"><img src={Facebook} className='rounded-full w-9' alt='facebook'/></a>
                 </li>
                 <li>
-                    <img src={Website} className='rounded-full w-9' alt='web'/>
+                    <a href="https://www.smkpluspnb.sch.id/view/"><img src={Website} className='rounded-full w-9' alt='website'/></a>
                 </li>
                 <li>
-                    <img src={Tiktok} className='rounded-full w-9' alt='tktk'/>
+                    <a href="https://www.tiktok.com/@smkppelitanusantaracbng"><img src={Tiktok} className='rounded-full w-9' alt='tiktok'/></a>
                 </li>
             </ul>
         </div>
-        <h5 className='text-xs '>© 2024SMK PLUS PELITA NUSANTARA™. All Rights Reserved.</h5>
+        <h5 className='text-xs'>© 2024SMK PLUS PELITA NUSANTARA™. All Rights Reserved.</h5>
     </footer>
     )
 }

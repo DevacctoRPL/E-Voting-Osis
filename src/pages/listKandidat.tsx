@@ -49,7 +49,7 @@ const ListKandidat: React.FC = () => {
               <div id="dot" className="flex h-[50px] w-[50px] bg-laut-dalam border-solid rounded-full z-10 absolute -top-2 -left-3 items-center justify-center">
                 <h3 className="w-full flex items-center justify-center text-center">{candidate.id}</h3>
               </div>
-              <img src={candidate.img} alt={candidate.name} className=" object-cover relative rounded-md" />
+              <img src={candidate.img} alt={candidate.name} className="cursor-pointer object-cover relative rounded-md" />
               <p className="mt-4 text-xl text-center w-full absolute -bottom-16 ">{candidate.name}</p>
             </div>
           ))}
