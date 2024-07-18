@@ -15,7 +15,7 @@ const Information: React.FC = () => {
   return (
     <>
       <body className='mb-[10rem] font-poppins'>
-        <div onClick={back} className="w-[50px] h-[50px] rounded-full bg-gradient-to-r from-merah-penus to-merah-gelap-penus mt-5 ml-5 flex items-center justify-center relative">
+        <div onClick={back} className="cursor-pointer w-[50px] h-[50px] rounded-full bg-gradient-to-r from-merah-penus to-merah-gelap-penus mt-5 ml-5 flex items-center justify-center relative">
           <img src={Arrow} alt="" className="w-[30px] h-[30px]" />
         </div>
         <div id="nomor" className="flex flex-col items-start justify-center h-full">
