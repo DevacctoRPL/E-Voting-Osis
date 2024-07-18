@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom';
 import Footer from '../styling-components/footer';
 
 const Information: React.FC = () => {
+
+
+  
   return (
     <>
       <body className='mb-[10rem] font-poppins'>
-        <Link to="{/list-kandidat}" className="w-[50px] h-[50px] rounded-full bg-gradient-to-r from-merah-penus to-merah-gelap-penus mt-5 ml-5 flex items-center justify-center relative cursor-pointer">
+        <Link to={"list-kandidat"} className="w-[50px] h-[50px] rounded-full bg-gradient-to-r from-merah-penus to-merah-gelap-penus mt-5 ml-5 flex items-center justify-center relative cursor-pointer">
           <img src={Arrow} alt="" className="w-[30px] h-[30px]" />
         </Link>
         <div id="nomor" className="flex flex-col items-start justify-center h-full">

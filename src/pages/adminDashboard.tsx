@@ -76,6 +76,7 @@ const Admin: React.FC = () => {
         <>
             <Head />
             <div className="container flex justify-center items-center w-screen h-screen mx-auto px-4 gap-16">
+                {/* Osis */}
                 <div className="osis container bg-merah-tergelap w-3/4 h-2/5 rounded-2xl relative flex items-center justify-center">
                     <div className="absolute right-0 flex flex-col items-end justify-center h-full">
                         <h1 className="text-[27rem] text-gelap opacity-10 font-extrabold">%</h1>
@@ -110,6 +111,7 @@ const Admin: React.FC = () => {
                         <li className="flex items-center gap-4"><div className="w-5 h-5 rounded-full bg-white"></div>Elon Musk</li>
                     </ul>
                 </div>
+                {/* MPK */}
                 <div className="mpk container bg-merah-tergelap w-3/4 h-2/5 rounded-2xl relative flex items-center justify-center">
                     <div className="absolute right-0 flex flex-col items-end justify-center h-full">
                         <h1 className="text-[27rem] opacity-10 font-extrabold text-gelap">%</h1>
