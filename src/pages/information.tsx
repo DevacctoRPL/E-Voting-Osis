@@ -16,21 +16,21 @@ const Information: React.FC = () => {
           <h1 className="z-[-1] text-[60rem] mt-[500px] text-[#000000] opacity-10 font-extrabold absolute">01</h1>
         </div>
         <div id='information' className='flex justify-around relative'>
-          <div id="photocard" className=" relative -mt-[10rem] mr- absolute">
-            <div className="z-2 w-[490px] h-[549px] bg-red-500 mt-[14.5rem] ml-[10rem] rounded-xl ">
+          <div id="photocard" className="relative -mt-[10rem] mr-10">
+            <div className="z-2 w-[490px] h-[549px] bg-merah-penus mt-[14.5rem] ml-[10rem] rounded-xl">
               <img src={Paslon1} alt="" className="absolute -mt-8 ml-5" />
             </div>
           </div>
-          <div id='info-wrapper' className='flex-col -ml-[5rem]'>
-            <div id="info" className='text-white mt-[50px] -ml-[10rem] font-poppins font-bold flex-col justify-center items-start w-[50rem]'>
-              <h1 className="text-[4rem] text-wrap ">Dilon donovan Damaswara Putra</h1>
-              <p className='flex justify-center -ml-[20rem]'> Dillon Juara Indonesia Dapat Wifi 2 GBPS</p>
+          <div id='info-wrapper' className='flex-col ml-[2rem]'>
+            <div id="info" className='text-white mt-[50px] font-poppins font-bold flex-col justify-center items-start w-[50rem]'>
+              <h1 className="text-[4rem]">Dilon donovan Damaswara Putra</h1>
+              <p className='flex justify-center'> Dillon Juara Indonesia Dapat Wifi 2 GBPS</p>
             </div>
-            <div id="visi-wrapper">
-              <div id='visi' className='w-[5rem] h-[1.5rem] bg-merah-penus -ml-[10rem] mt-[2rem]'>
-                <h1 className='font-semibold text-white inline-block align-middle text-center ml-5'>Visi</h1>
-                <div className='w-[50rem] ml-[1rem]'>
-                  <ul className='list-disc text-white mt-5'>
+            <div id="visi-wrapper" className='mt-10'>
+              <div id='visi' className='w-[37rem] h-[150px] bg-glass p-5 overflow-auto rounded-lg'>
+                <h1 className='font-semibold text-white text-center mb-2'>Visi</h1>
+                <div className='ml-5'>
+                  <ul className='list-disc text-white'>
                     <li>AkAN Mewmberikan sprei gratis setiap hari</li>
                     <li>ayam potojh</li>
                     <li>ayam potojh</li>
@@ -40,11 +40,11 @@ const Information: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div id="misi-wrapper">
-              <div id='misi' className='w-[5rem] h-[1.5rem] bg-merah-penus -ml-[10rem] mt-[10rem]'>
-                <h1 className='font-semibold text-white inline-block align-middle text-center ml-5'>Misi</h1>
-                <div className='w-[50rem] ml-[1rem]'>
-                  <ul className='list-disc text-white mt-5'>
+            <div id="misi-wrapper" className='mt-10'>
+              <div id='misi' className='w-[37rem] h-[150px] bg-glass p-5 overflow-auto rounded-lg'>
+                <h1 className='font-semibold text-white text-center mb-2'>Misi</h1>
+                <div className='ml-5'>
+                  <ul className='list-disc text-white'>
                     <li>AkAN Mewmberikan sprei gratis setiap hari</li>
                     <li>ayam potojh</li>
                     <li>ayam potojh</li>
@@ -55,11 +55,11 @@ const Information: React.FC = () => {
               </div>
             </div>
 
-            <div id="proker-wrapper">
-              <div id='proker' className='w-[10rem] h-[1.5rem] bg-merah-penus -ml-[10rem] mt-[10rem]'>
-                <h1 className='font-semibold text-white inline-block align-middle text-center ml-5'>Program kerja</h1>
-                <div className='w-[50rem] ml-[1rem]'>
-                  <ul className='list-disc text-white mt-5'>
+            <div id="proker-wrapper" className='mt-6'>
+              <div id='proker' className='w-[37rem] h-[150px] bg-glass p-5 overflow-auto rounded-lg'>
+                <h1 className='font-semibold text-white text-center mb-2'>Program kerja</h1>
+                <div className='ml-5'>
+                  <ul className='list-disc text-white'>
                     <li>AkAN Mewmberikan sprei gratis setiap hari</li>
                     <li>ayam potojh</li>
                     <li>ayam potojh</li>
