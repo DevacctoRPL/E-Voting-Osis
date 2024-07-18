@@ -5,9 +5,9 @@ import React from "react";
 
 
 //npm i apexcharts react-apexcharts
-import Chart from "react-apexcharts";
+import Chart, {Props} from "react-apexcharts";
 
-  const chartOsis = {
+  const chartOsis:Props = {
     type: "pie",
     width: 220,
     height: 220,
@@ -19,7 +19,7 @@ import Chart from "react-apexcharts";
             },
         },
         title: {
-            show: "",
+            text: ""
         },
         dataLabels: {
             enabled: false,
@@ -32,7 +32,7 @@ import Chart from "react-apexcharts";
     },
   };
 
-  const chartMpk = {
+  const chartMPK:Props = {
     type: "pie",
     width: 220,
     height: 220,
@@ -44,7 +44,7 @@ import Chart from "react-apexcharts";
             },
         },
         title: {
-            show: "",
+            text:"",
         },
         dataLabels: {
             enabled: false,
@@ -128,7 +128,7 @@ const Admin: React.FC = () => {
                         </tbody>
                     </table>
                     {/* Biarin merah emg begitu, kalo bisa di ilangin ilanginn aja */}
-                    <Chart {...chartMpk} />
+                    <Chart {...chartMPK} />
                 </div>
             </div>
             <Footer />
