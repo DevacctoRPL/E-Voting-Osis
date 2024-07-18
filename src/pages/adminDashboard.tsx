@@ -7,24 +7,50 @@ import React from "react";
 //npm i apexcharts react-apexcharts
 import Chart from "react-apexcharts";
 
-  const chartConfig = {
+  const chartOsis = {
     type: "pie",
     width: 220,
     height: 220,
-    series: [44, 55, 13, 43, 22],
+    series: [44, 55, 13],
     options: {
-      chart: {
-        toolbar: {
-          show: false,
+        chart: {
+            toolbar: {
+                show: false,
+            },
         },
+        title: {
+            show: "",
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        labels: ['Elon Musk', 'Dillon Donovan Damaswara Putra', 'Gojoj Simanjuntak Junior'],
+        colors: ["#020617", "#ff8f00", "#00897b"],
+      legend: {
+        show: false,
       },
-      title: {
-        show: "",
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      colors: ["#020617", "#ff8f00", "#00897b", "#1e88e5", "#d81b60"],
+    },
+  };
+
+  const chartMpk = {
+    type: "pie",
+    width: 220,
+    height: 220,
+    series: [44, 55, 13],
+    options: {
+        chart: {
+            toolbar: {
+                show: false,
+            },
+        },
+        title: {
+            show: "",
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        labels: ['Elon Musk', 'Team B', 'Team C'],
+        colors: ["#020617", "#ff8f00", "#00897b"],
       legend: {
         show: false,
       },
@@ -69,7 +95,7 @@ const Admin: React.FC = () => {
                         </tbody>
                     </table>
                     {/* Biarin merah emg begitu, kalo bisa di ilangin ilanginn aja */}
-                    <Chart {...chartConfig} />
+                    <Chart {...chartOsis} />
                 </div>
                 <div className="mpk container bg-merah-tergelap w-3/4 h-2/5 rounded-2xl relative flex items-center ">
                     <div className="absolute right-0 flex flex-col items-end justify-center h-full">
@@ -102,7 +128,7 @@ const Admin: React.FC = () => {
                         </tbody>
                     </table>
                     {/* Biarin merah emg begitu, kalo bisa di ilangin ilanginn aja */}
-                    <Chart {...chartConfig} />
+                    <Chart {...chartMpk} />
                 </div>
             </div>
             <Footer />
