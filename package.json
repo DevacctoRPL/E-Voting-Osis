@@ -10,12 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.51.9",
+    "apexcharts": "^3.50.0",
     "react": "^18.3.1",
+    "react-apexcharts": "^1.4.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.51.9",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",

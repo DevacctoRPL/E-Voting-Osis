@@ -1,12 +1,12 @@
 // src/App.tsx
 import React from 'react';
-import Login from './pages/login';
 import './index.css';
+import Landpage from './pages/landpage';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Login />
+      <Landpage />
     </div>
   );
 };
