@@ -61,7 +61,7 @@ import Chart, {Props} from "react-apexcharts";
                 },
             },
         },
-        labels: ['Elon Musk', 'Team B', 'Team C'],
+        labels: ['Elon Musk', 'Dillon Donovan Damaswara Putra', 'Gojoj Simanjuntak Junior'],
         colors: ["#020617", "#ff8f00", "#00897b"],
       legend: {
         show: false,
