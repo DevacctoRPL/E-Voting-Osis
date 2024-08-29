@@ -1,5 +1,5 @@
-import Head from "../styling-components/header";
-import Footer from "../styling-components/footer";
+import Head from "../components/header";
+import Footer from "../components/footer";
 import Paslon1 from "/paslon1.png";
 import Paslon2 from "/mark.png";
 import Paslon3 from "/sitorus.jpg";
@@ -24,7 +24,7 @@ const candidates = [
   },
 ];
 
-const ListKandidat: React.FC = () => {
+const ListKandidatOsis: React.FC = () => {
 
   const navigate = useNavigate();
   const pilih = () => {
@@ -60,4 +60,4 @@ const ListKandidat: React.FC = () => {
   );
 };
 
-export default ListKandidat;
+export default ListKandidatOsis;

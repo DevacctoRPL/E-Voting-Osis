@@ -2,108 +2,46 @@ import Paslon1 from '/paslon1.png';
 import React from 'react';
 import Arrow from '/arrow.png';
 // Styling Component
-// import Head from "../styling-components/header";
-import Footer from '../styling-components/footer';
+import Footer from '../components/footer';
 import { useNavigate } from 'react-router-dom';
 
 const Information: React.FC = () => {
   const navigate = useNavigate();
 
   const back = () => {
-    navigate('/list-kandidat'); 
+    navigate(-1);
   };
   return (
     <>
       <body className='mb-[10rem] font-poppins'>
-        <div onClick={back} className="cursor-pointer w-[50px] h-[50px] rounded-full bg-gradient-to-r from-merah-penus to-merah-gelap-penus mt-5 ml-5 flex items-center justify-center relative">
+        <div onClick={back} className="cursor-pointer z-10 w-[50px] h-[50px] rounded-full bg-gradient-to-r from-merah-penus to-merah-gelap-penus mt-5 ml-5 flex items-center justify-center relative">
           <img src={Arrow} alt="" className="w-[30px] h-[30px]" />
         </div>
         <div id="nomor" className="flex flex-col items-start justify-center h-full">
-          <h1 className="z-[-1] text-[60rem] mt-[500px] text-[#000000] opacity-40 font-extrabold absolute">01</h1>
+          <h1 className="z-[-1] text-[60rem] mt-[40rem] text-[#000000] opacity-40 font-extrabold absolute">02</h1>
         </div>
-        <div id='information' className='flex justify-around relative mr-[4rem]'>
-          <div id="photocard" className="relative -mt-[10rem] mr-10">
-            <div className="z-2 w-[490px] h-[549px] bg-merah-penus mt-[14.5rem] ml-[10rem] rounded-xl">
-              <img src={Paslon1} alt="" className="absolute -mt-8 ml-5" />
+        <div id='information' className='flex justify-between gap-[2rem] relative m-[4rem]'>
+          <div className="bg-merah-penus rounded-xl p-3">
+            <img src={Paslon1}></img>
+          </div>
+          <div className="flex flex-col w-[70%] justify-start items-start gap-[3rem] text-white">
+            <div id="nama" className="flex flex-col items-center gap-0">
+              <div className="font-extrabold text-[3rem] leading-none">Dillon Donovan</div>
+              <p className="text-[2rem]">&</p>
+              <div className="font-extrabold text-[3rem] leading-none">Macabre Plaza</div>
+            </div>
+            <div id="visi" className="flex flex-col w-full items-start bg-black bg-opacity-70 border-white border-2 rounded-xl">
+              <div className="w-full bg-merah-penus rounded-t-xl text-center text-3xl">VISI</div>
+              <ul className="p-10">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
             </div>
           </div>
-          <div id='info-wrapper' className='flex-col ml-[2rem]'>
-            <div id="info" className='text-white mt-[50px] font-poppins font-bold flex-col justify-center items-start w-[50rem]'>
-              <h1 className="text-[4rem]">Dilon donovan Damaswara Putra</h1>
-              <p className='flex justify-center'> Dillon Juara Indonesia Dapat Wifi 2 GBPS</p>
-            </div>
-            <div id="visi-wrapper" className='mt-10'>
-              <div id='visi' className='w-[37rem] h-[150px] bg-glass  p-0 overflow-auto rounded-lg'>
-                <div className='pr-[5rem] pl-[5rem] sticky top-0 bg-merah-penus'>
-                  <h1 className='font-semibold text-white text-center mb-2 pr-5 sticky top-0'>Visi</h1>
-                </div>
-                <div className='ml-5'>
-                  <ul className='list-disc text-white'>
-                    <li>AkAN Mewmberikan sprei gratis setiap hari</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="misi-wrapper" className='mt-10'>
-              <div id='misi' className='w-[37rem] h-[150px] bg-glass p-0 overflow-auto rounded-lg'>
-              <div className='pr-[5rem] pl-[5rem] sticky top-0 bg-merah-penus'>
-                  <h1 className='font-semibold text-white text-center mb-2 pr-5 sticky top-0'>Misi</h1>
-                </div>
-                <div className='ml-5'>
-                  <ul className='list-disc text-white'>
-                    <li>AkAN Mewmberikan sprei gratis setiap hari</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div id="proker-wrapper" className='mt-6'>
-              <div id='proker' className='w-[37rem] h-[150px] bg-glass p-0 overflow-auto rounded-lg'>
-              <div className='pr-[5rem] pl-[5rem] sticky top-0 bg-merah-penus'>
-                  <h1 className='font-semibold text-white text-center mb-2 pr-5 sticky top-0'>Program Kerja</h1>
-                </div>
-                <div className='ml-5'>
-                  <ul className='list-disc text-white'>
-                    <li>AkAN Mewmberikan sprei gratis setiap hari</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                    <li>ayam potojh</li>
-                  </ul>
-                </div>
-              </div>
-              <button className='absolute bottom-[-4rem] right-0 bg-merah-penus text-white font-bold py-3 drop-shadow-2xl px-16 rounded-full'>
-              Vote
-            </button>
-            </div>
-          </div>
-        </div>  
+        </div>
       </body>
       <Footer />
     </>

@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.51.9",
     "apexcharts": "^3.50.0",
+    "axios": "^1.7.5",
     "react": "^18.3.1",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18.3.1",
