@@ -4,3 +4,8 @@ export type User = {
   NIU: string;
   Password: number;
 }
+
+export type currentUserres = {
+  data: Promise<any>;
+  status: Promise<number>;
+}

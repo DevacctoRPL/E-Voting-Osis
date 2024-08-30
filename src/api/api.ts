@@ -17,3 +17,7 @@ export const getCurrentUser = async () => {
   return res.then((r) => r.data)
 }
 
+export const LogoutFn = async () => {
+  const res = apiclient.get('/logout')
+  return res.then((r) => r.data)
+}

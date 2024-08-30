@@ -1,5 +1,5 @@
 // React
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 
 // Resource
@@ -22,6 +22,7 @@ const Landpage: React.FC = () => {
     queryKey: ['cobarequest'],
   })
 
+
   const pilih = (kemana: string) => {
     navigate(`/list-Kandidat/${kemana}`);
   };
@@ -31,7 +32,6 @@ const Landpage: React.FC = () => {
       <Head />
       <div className="overflow-hidden">
         <div className="w-screen h-screen p-24 flex flex-col justify-center relative overflow-hidden">
-          {/* Transparent background text */}
           <div className="absolute inset-0 flex flex-col justify-center items-stretch z-[-1] pointer-events-none">
             <div className="flex flex-col items-start justify-center h-full">
               <h1 className="text-[15rem] text-putih-putih opacity-10 font-extrabold">

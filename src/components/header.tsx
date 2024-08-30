@@ -1,12 +1,17 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import Penus from '/penus.png';
 import User from '/user.png';
 import Logout from '/logout.png';
 import { UserContext } from '../context/userContext';
+import { Navigate } from 'react-router-dom';
+
 
 const Head: React.FC = () => {
-  const { user } = useContext(UserContext)
+  const user = useContext(UserContext)
+  if (!user?.user) {
+    return <Navigate to="/" />
+  }
   useEffect(() => {
     const handleScroll = () => {
       const nav = document.querySelector('nav');
@@ -33,13 +38,13 @@ const Head: React.FC = () => {
         </h3>
         <div className='relative group flex flex-col items-center h-auto w-auto'>
           <img src={User} id='showNav' className='rounded-full cursor-pointer' alt='user' />
-          <aside className='flex flex-col overflow-hidden bg-putih-putih max-h-0 top-14 rounded-3xl absolute group-hover:max-h-60 group-hover:px-8 group-hover:py-2 duration-500 transition-all ease-in-out'>
-            <ul className='text-laut-dalam'>
-              <li className='w-full text-center m-1 text-black font-bold' key="username"><a href="#">{user.Nama}</a></li>
-              <li className='w-full text-center m-1 text-gray-400 font-bold' key="kelas"><a href="#">Kelas</a></li>
-              <hr className='border-black' />
-              <li className='w-full text-center m-1' key="logout"><a href="#" className='flex items-center'> <img src={Logout} className='w-4 h-4 -scale-100 mr-1 font-extralight' alt="logout.png" /> Logout</a></li>
-            </ul>
+          <aside className='flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out'>
+            <p className="font-bold">{user?.user?.Nama}</p>
+            <hr className="w-[130%] border border-black mb-2" />
+            <div className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
+              <img src={Logout} alt="" className="w-[20%] scale-x-[-1]" />
+              <p onClick={() => setFetch(true)}>Logout</p>
+            </div>
           </aside>
         </div>
       </div>

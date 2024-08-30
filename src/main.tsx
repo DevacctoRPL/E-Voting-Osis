@@ -43,23 +43,12 @@ const router = createBrowserRouter(routes)
 const query = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-const Auahanjing = () => {
-  const loginpage = routes.find((r) => r.path === '/')
-  routes.map((route) => {
-    switch (route.path) {
-      case '/':
-        return loginpage
-
-      default:
-        return route
-    }
-  })
-}
-
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={query}>
-      <RouterProvider router={router} />
+      <UserProvider>
+        <RouterProvider router={router} />
+      </UserProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

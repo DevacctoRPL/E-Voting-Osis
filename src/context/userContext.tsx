@@ -1,6 +1,6 @@
-import React, { createContext, useState, useEffect } from "react";
-import { getCurrentUser } from "../api/api";
+import React, { createContext, useEffect, useState, } from "react";
 import { User } from "../types/types";
+import { getCurrentUser } from "../api/api";
 
 export interface UserContextType {
   user: User | null;
@@ -14,21 +14,21 @@ export const UserContext = createContext<UserContextType | undefined>(
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
+  const [loading, setLoading] = useState(true)
+  function onUserSuccess(res: User | null) {
+    setUser(res)
+    setLoading(!loading)
+  }
+  function onError(err: any) {
+    throw new Error(`${err}`)
+  }
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const user = await getCurrentUser();
-        setUser(user);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchUser();
-  }, []);
+    try {
+      getCurrentUser().then(onUserSuccess).catch(onError)
+    } catch (error) {
+      throw new Error(`${error}`)
+    }
+  }, [])
 
   return (
     <UserContext.Provider value={{ user, loading, setUser }}>
