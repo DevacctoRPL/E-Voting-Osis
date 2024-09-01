@@ -1,6 +1,7 @@
-import React, { createContext, useEffect, useState, } from "react";
+import React, { createContext, useContext, useEffect, useState, } from "react";
 import { User } from "../types/types";
 import { getCurrentUser } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
 export interface UserContextType {
   user: User | null;
@@ -13,18 +14,18 @@ export const UserContext = createContext<UserContextType | undefined>(
 );
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
+  const nav = useNavigate()
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true)
+
   function onUserSuccess(res: User | null) {
-    setUser(res)
     setLoading(!loading)
+    setUser(res)
   }
-  function onError(err: any) {
-    throw new Error(`${err}`)
-  }
+
   useEffect(() => {
     try {
-      getCurrentUser().then(onUserSuccess).catch(onError)
+      getCurrentUser().then(onUserSuccess).catch(() => console.log("hehe"))
     } catch (error) {
       throw new Error(`${error}`)
     }
@@ -36,3 +37,12 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     </UserContext.Provider>
   )
 };
+
+export function useAuth() {
+  const user = useContext(UserContext)
+  if (!user) {
+    throw new Error("woi bangsat kutu loncat")
+  }
+
+  return user;
+}

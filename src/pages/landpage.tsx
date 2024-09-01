@@ -1,5 +1,5 @@
 // React
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 // Resource
@@ -11,17 +11,10 @@ import Mpk from "/mpk.png";
 // Styling Component
 import Head from "../components/header";
 import Footer from "../components/footer";
-import { useQuery } from "@tanstack/react-query";
-import { cobarequest } from "../api/api";
 
 
 const Landpage: React.FC = () => {
   const navigate = useNavigate();
-  const { data: Message, isLoading } = useQuery({
-    queryFn: () => cobarequest(),
-    queryKey: ['cobarequest'],
-  })
-
 
   const pilih = (kemana: string) => {
     navigate(`/list-Kandidat/${kemana}`);
@@ -52,9 +45,8 @@ const Landpage: React.FC = () => {
               E-VOTING
             </h1>
             <p className="text-putih-putih mb-6">
-              {isLoading ? "Loading" : Message.message}
             </p>
-            <a href="#bijak">
+            <a href="#vote">
               <button className="bg-merah-penus px-12  py-4 rounded-3xl text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_60%)] duration-200 hover:drop-shadow-merah-penus-bayangan hover:scale-105">
                 <span>Saya Ingin Voting Sekarang</span>
               </button>
@@ -83,7 +75,7 @@ const Landpage: React.FC = () => {
           </div>
         </div>
 
-        <div className="w-screen h-screen">
+        <div id="vote" className="w-screen h-screen">
           <div className="flex items-center justify-center h-full flex-col">
             <div className="flex items-center text-white">
               <div className="h-px w-20 bg-white"></div>

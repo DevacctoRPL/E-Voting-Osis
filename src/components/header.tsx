@@ -1,17 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import Penus from '/penus.png';
 import User from '/user.png';
 import Logout from '/logout.png';
 import { UserContext } from '../context/userContext';
-import { Navigate } from 'react-router-dom';
-
 
 const Head: React.FC = () => {
   const user = useContext(UserContext)
-  if (!user?.user) {
-    return <Navigate to="/" />
-  }
   useEffect(() => {
     const handleScroll = () => {
       const nav = document.querySelector('nav');
@@ -21,7 +16,6 @@ const Head: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup on unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -43,7 +37,6 @@ const Head: React.FC = () => {
             <hr className="w-[130%] border border-black mb-2" />
             <div className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
               <img src={Logout} alt="" className="w-[20%] scale-x-[-1]" />
-              <p onClick={() => setFetch(true)}>Logout</p>
             </div>
           </aside>
         </div>
