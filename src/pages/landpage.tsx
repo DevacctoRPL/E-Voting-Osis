@@ -9,8 +9,8 @@ import Osis from "/osis.png";
 import Mpk from "/mpk.png";
 
 // Styling Component
-import Head from "../components/header";
-import Footer from "../components/footer";
+// import Head from "../components/header";
+// import Footer from "../components/footer";
 
 
 const Landpage: React.FC = () => {
@@ -44,9 +44,10 @@ const Landpage: React.FC = () => {
               E-VOTING
             </h1>
             <p className="text-putih-putih mb-6">
+              Selamat datang ke dalam program e-voting Penus. Silahkan geser kebawah untuk memilih kandidat MPK dan OSIS favorit anda atau klik tombol yang ada dibawah.
             </p>
             <a href="#vote">
-              <button className="bg-merah-penus px-12  py-4 rounded-3xl text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_60%)] duration-200 hover:drop-shadow-merah-penus-bayangan hover:scale-105">
+              <button className="bg-merah-penus px-12 py-4 rounded-3xl text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_60%)] transition-all duration-300 hover:drop-shadow-merah-penus-bayangan hover:scale-105">
                 <span>Saya Ingin Voting Sekarang</span>
               </button>
             </a>
