@@ -1,19 +1,12 @@
 // src/components/PrivateRoute.tsx
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/userContext';
 
-interface PrivateRouteProps {
-  component: React.FC;
-  path: string;
-  exact?: boolean;
-}
+const PrivateRoute: React.FC = () => {
+  const { user } = useAuth();
 
-const KomponenPripat: React.FC<PrivateRouteProps> = ({ component: Component, ...rest }) => {
-  const { user } = useAuth()
-  return (
-    <Route {...rest} Component={(props) => user ? <Component {...props} /> : <Navigate to="/" />} />
-  );
+  return user ? <Outlet /> : <Navigate to="/" />;
 };
 
-export default KomponenPripat;
+export default PrivateRoute;

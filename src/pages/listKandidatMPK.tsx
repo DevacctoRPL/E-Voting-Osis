@@ -1,7 +1,4 @@
-import Head from "../components/header";
-import Footer from "../components/footer";
 import Paslon1 from "/paslon1.png";
-import Paslon2 from "/mark.png";
 import Paslon3 from "/sitorus.jpg";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +25,6 @@ const ListKandidatMPK: React.FC = () => {
 
   return (
     <>
-      <Head />
       <div className=" text-white flex flex-col items-center justify-center py-10 mb-14">
         <div className="flex items-center text-white">
           <div className="h-px w-20 bg-white"></div>
@@ -49,7 +45,6 @@ const ListKandidatMPK: React.FC = () => {
           ))}
         </div>
       </div>
-      <Footer />
     </>
   );
 };

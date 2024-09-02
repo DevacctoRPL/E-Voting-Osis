@@ -17,12 +17,11 @@ const Landpage: React.FC = () => {
   const navigate = useNavigate();
 
   const pilih = (kemana: string) => {
-    navigate(`/list-Kandidat/${kemana}`);
+    navigate(`/listkandidat/${kemana}`);
   };
 
   return (
     <>
-      <Head />
       <div className="overflow-hidden">
         <div className="w-screen h-screen p-24 flex flex-col justify-center relative overflow-hidden">
           <div className="absolute inset-0 flex flex-col justify-center items-stretch z-[-1] pointer-events-none">
@@ -99,7 +98,6 @@ const Landpage: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

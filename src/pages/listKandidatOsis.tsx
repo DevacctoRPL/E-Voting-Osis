@@ -1,7 +1,6 @@
 import Head from "../components/header";
 import Footer from "../components/footer";
 import Paslon1 from "/paslon1.png";
-import Paslon2 from "/mark.png";
 import Paslon3 from "/sitorus.jpg";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,11 +10,6 @@ const candidates = [
     id: 1,
     name: "Elon Musk",
     img: Paslon1,
-  },
-  {
-    id: 2,
-    name: "Dillon Donovan Damaswara Putra",
-    img: Paslon2,
   },
   {
     id: 3,
@@ -28,13 +22,11 @@ const ListKandidatOsis: React.FC = () => {
 
   const navigate = useNavigate();
   const pilih = () => {
-
     navigate('/information')
   }
 
   return (
     <>
-      <Head />
       <div className=" text-white flex flex-col items-center justify-center py-10 mb-14">
         <div className="flex items-center text-white">
           <div className="h-px w-20 bg-white"></div>
@@ -55,7 +47,6 @@ const ListKandidatOsis: React.FC = () => {
           ))}
         </div>
       </div>
-      <Footer />
     </>
   );
 };
