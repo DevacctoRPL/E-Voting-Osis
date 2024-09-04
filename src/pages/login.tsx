@@ -1,23 +1,22 @@
 // src/pages/Login.tsx
 import { useMutation } from '@tanstack/react-query';
 import Voting from '/Voting-amico.svg';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginFn } from '../api/api';
+import { UserContext } from '../context/userContext';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [NIS, setNIS] = useState<string>("")
   const [Password, setPassword] = useState<number>(0)
+  const user = useContext(UserContext)
   const PostLoginData = useMutation({
     mutationFn: LoginFn,
     onSuccess(data) {
-      alert(JSON.stringify(data.message))
+      user?.setUser(data)
       navigate("/landpage")
     },
-    onError(err) {
-      alert(`anjing ${JSON.stringify(err)}`)
-    }
   })
 
   const handleLogin = () => {

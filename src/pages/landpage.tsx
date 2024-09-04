@@ -8,11 +8,6 @@ import Cursor from "/click.png";
 import Osis from "/osis.png";
 import Mpk from "/mpk.png";
 
-// Styling Component
-// import Head from "../components/header";
-// import Footer from "../components/footer";
-
-
 const Landpage: React.FC = () => {
   const navigate = useNavigate();
 

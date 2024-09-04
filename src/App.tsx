@@ -16,18 +16,16 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={query}>
       <Router>
-        <UserProvider>
-          <Routes>
-            <Route path="/" Component={Login} />
-            <Route element={<MainPageLayout />} >
-                <Route path="/landpage" element={<Landpage />} />
-                <Route path="/" element={<Landpage />} />
-                <Route path="/listkandidat/MPK" Component={ListKandidatMPK} />
-                <Route path="/listkandidat/OSIS" Component={ListKandidatOsis} />
-                <Route path="/information" Component={Information} />
-              </Route>
-          </Routes>
-        </UserProvider>
+        <Routes>
+          <Route path="/" Component={Login} />
+          <Route element={<UserProvider />}>
+            <Route path="/landpage" element={<Landpage />} />
+            <Route path="/" element={<Landpage />} />
+            <Route path="/listkandidat/MPK" Component={ListKandidatMPK} />
+            <Route path="/listkandidat/OSIS" Component={ListKandidatOsis} />
+            <Route path="/information" Component={Information} />
+          </Route>
+        </Routes>
       </Router>
     </QueryClientProvider>
   );

@@ -1,33 +1,41 @@
 import React, { createContext, useContext, useEffect, useState, } from "react";
 import { User } from "../types/types";
 import { getCurrentUser } from "../api/api";
+import { Outlet, useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 export interface UserContextType {
-  user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  user: User | null | undefined;
+  setUser: React.Dispatch<React.SetStateAction<User | null | undefined>>;
 }
 
 export const UserContext = createContext<UserContextType | undefined>(
   undefined
 );
 
-export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
-
-  function onUserSuccess(res: User | null) {
+export const UserProvider = () => {
+  const [user, setUser] = useState<User | null | undefined>();
+  const nav = useNavigate()
+  function onUserSuccess(res: User | null | undefined) {
     setUser(res)
   }
 
+  function onUserError(err: AxiosError) {
+    nav('/')
+  }
+
+
   useEffect(() => {
-    if (user !== null) {
+    if (user !== null && user !== undefined) {
       return () => {
-        alert("udah ada bejir")
+        console.log("hi")
       }
     }
 
     try {
-      alert("wah ngerun nih")
-      getCurrentUser().then(onUserSuccess).catch(() => console.log("hehe"))
+      getCurrentUser().then(onUserSuccess).catch(onUserError)
     } catch (error) {
       throw new Error(`${error}`)
     }
@@ -35,7 +43,9 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      {children}
+      <Header />
+      <Outlet />
+      <Footer />
     </UserContext.Provider>
   )
 };
