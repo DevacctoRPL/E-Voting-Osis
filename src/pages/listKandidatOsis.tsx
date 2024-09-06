@@ -1,5 +1,3 @@
-import Head from "../components/header";
-import Footer from "../components/footer";
 import Paslon1 from "/paslon1.png";
 import Paslon3 from "/sitorus.jpg";
 import React from "react";
