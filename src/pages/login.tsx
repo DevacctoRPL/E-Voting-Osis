@@ -36,7 +36,7 @@ const Login: React.FC = () => {
   }
 
   return (
-    <main className="flex md:gap-10 my-8 w-screen h-full md:h-screen items-center justify-center  ">
+    <main className="flex md:max-md:gap-10 my-8 w-screen h-full md:h-screen items-center justify-center  ">
       <section className="w-[70%] h-[80%] flex md:flex items-center justify-between max-md:flex-col">
         <div id="Thumbnail" className="bg-gradient-to-t from-merah-gelap-penus from-60% to-merah-penus rounded-3xl h-[50%] md:h-[95%] md:w-1/2 flex items-center justify-center md:p-6">
           <img src={Voting} alt="Voting Amico" className="w-11/12 h-11/12" />
