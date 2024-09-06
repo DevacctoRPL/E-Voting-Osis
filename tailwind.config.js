@@ -29,6 +29,7 @@ export default {
         'putih-putih': '#D9D9D9',
         'merah-tergelap' : '#6D1408',
         'gelap' : '#1F2937',
+        'penus' : '#C80000',
       },
       fontSize: {
         '7.5xl': '7rem',
