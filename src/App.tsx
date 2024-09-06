@@ -2,7 +2,6 @@
 import React from 'react';
 import './index.css';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-import { UserProvider } from './context/userContext';
 import Login from './pages/login';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Landpage from './pages/landpage';
@@ -18,7 +17,7 @@ const App: React.FC = () => {
       <Router>
         <Routes>
           <Route path="/" Component={Login} />
-          <Route element={<UserProvider />}>
+          <Route element={<MainPageLayout />}>
             <Route path="/landpage" element={<Landpage />} />
             <Route path="/" element={<Landpage />} />
             <Route path="/listkandidat/MPK" Component={ListKandidatMPK} />
