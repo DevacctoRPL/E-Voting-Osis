@@ -73,10 +73,15 @@ const Information: React.FC = () => {
       </div>
     </div>
 
-    <div className="flex flex-col w-full md:w-[70%] justify-start items-start gap-[1.5rem] md:gap-[3rem] text-white">
-      <div id="nama" className="items-center gap-0">
-        <div className="font-bold text-[1.5rem] flex md:text-[3rem] md:whitespace-nowrap">Dillon Donovan Damaswara Putra </div>
-        <div className="text-[1rem] flex md:text-[1.5rem] leading-none">Dillon juara indonesia dapat wifi 2 gbps</div>
+    <div className="flex flex-col w-full md:w-[70%] justify-center md:justify-start md:items-start gap-[1.5rem] md:gap-[3rem] text-white">
+      {/* Nama Paslon */}
+      <div id="nama" className="items-center gap-0 text-center md:text-left">
+        <div className="font-bold text-[1.5rem] flex justify-center md:justify-start md:text-[3rem] md:whitespace-nowrap">
+          Dillon Donovan Damaswara Putra
+        </div>
+        <div className="text-[1rem] flex justify-center md:justify-start md:text-[1.5rem] leading-none">
+          Dillon juara indonesia dapat wifi 2 gbps
+        </div>
       </div>
 
       <div>
@@ -118,8 +123,6 @@ const Information: React.FC = () => {
   </div>
 </main>
 < Footer />
-
-
 
     </>
   );
