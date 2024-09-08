@@ -9,7 +9,6 @@ import ListKandidatMPK from './pages/listKandidatMPK';
 import ListKandidatOsis from './pages/listKandidatOsis';
 import MainPageLayout from './pages/mainpagelayout';
 import Information from './pages/information';
-import Admin from './pages/adminDashboard';
 
 const App: React.FC = () => {
   const query = new QueryClient()
@@ -24,7 +23,6 @@ const App: React.FC = () => {
             <Route path="/listkandidat/MPK" Component={ListKandidatMPK} />
             <Route path="/listkandidat/OSIS" Component={ListKandidatOsis} />
             <Route path="/information" Component={Information} />
-            <Route path="/admin" Component={Admin} />
           </Route>
         </Routes>
       </Router>
