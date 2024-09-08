@@ -22,8 +22,9 @@ const App: React.FC = () => {
             <Route path="/" element={<Landpage />} />
             <Route path="/listkandidat/MPK" Component={ListKandidatMPK} />
             <Route path="/listkandidat/OSIS" Component={ListKandidatOsis} />
-            <Route path="/information" Component={Information} />
           </Route>
+          
+            <Route path="/information" Component={Information} />
         </Routes>
       </Router>
     </QueryClientProvider>
