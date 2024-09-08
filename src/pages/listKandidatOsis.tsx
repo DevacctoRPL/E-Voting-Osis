@@ -1,7 +1,7 @@
 
 import Paslon1 from "/paslon1.png";
 import Paslon3 from "/sitorus.jpg";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Daftar kandidat
@@ -12,32 +12,47 @@ const candidates = [
     img: Paslon1,
   },
   {
+    id: 2,
+    name: "M riki gojo satoru",
+    img: Paslon3,
+  },
+  {
     id: 3,
+    name: "M riki gojo satoru",
+    img: Paslon3,
+  },
+  {
+    id: 4,
     name: "M riki gojo satoru",
     img: Paslon3,
   },
 ];
 
 const ListKandidatOsis: React.FC = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);  // Mengatur scroll ke posisi (0, 0) alias bagian atas halaman
+  }, []);
+
   const navigate = useNavigate();
   const pilih = () => {
     navigate("/information");
   };
 
   return (
-    <>
+    <main className="max-md:pt-20 pt-16">
       <div className="text-white flex flex-col items-center justify-center py-10 mb-14">
         {/* Heading Section */}
         <div className="flex items-center text-white mb-20">
           <div className="h-px w-16 md:w-20 bg-white"></div>
-          <p className="text-xs md:text-lg mx-2 md:mx-4 text-center">
-            Tentukan Kandidat Terbaikmu dan Klik Gambar Dibawah
+          <p className="text-xs md:text-lg mx-4 md:mx-4 text-center">
+            Tentukan Kandidat MPK Terbaikmu
           </p>
           <div className="h-px w-16 md:w-20 bg-white"></div>
         </div>
 
         {/* hahay */}
-        <div className="flex flex-wrap items-start gap-10 md:flex md:mt-8  md:gap-32">
+        <div className="flex flex-wrap justify-center gap-10 md:flex md:mt-8  md:gap-32">
           {candidates.map((candidate) => (
             <div key={candidate.id} className="flex flex-col items-center">
               <div
@@ -70,7 +85,7 @@ const ListKandidatOsis: React.FC = () => {
           ))}
         </div>
       </div>
-    </>
+    </main>
   );
 };
 

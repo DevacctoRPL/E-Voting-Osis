@@ -38,12 +38,12 @@ const Login: React.FC = () => {
   return (
     <main className="flex md:gap-10 my-8 w-screen h-full md:h-screen items-center justify-center  ">
       <section className="w-[70%] h-[80%] flex md:flex items-center justify-between max-md:flex-col">
-        <div id="Thumbnail" className="bg-gradient-to-t from-merah-gelap-penus from-60% to-merah-penus rounded-3xl h-[50%] md:h-[95%] md:w-1/2 flex items-center justify-center md:p-6">
+        <div id="Thumbnail" className="bg-gradient-to-t from-merah-gelap-penus from-60% to-merah-penus rounded-3xl h-[50%] md:h-[95%] md:w-1/2 flex items-center justify-center md:p-6 max-md:py-4">
           <img src={Voting} alt="Voting Amico" className="w-11/12 h-11/12" />
         </div>
         <div id="Form" className="h-fit md:w-[45%] md:flex flex-col items-start justify-center">
           <div className="mb-6 md:w-full grow flex flex-col md:justify-center gap-3">
-            <h1 className="text-xl md:text-6xl text-white font-semibold md:mb-20 text-center items-center md:text-left mt-3">
+            <h1 className="text-xl text-nowrap md:text-6xl text-white font-semibold md:mb-10 text-center items-center md:text-left mt-3">
               <span className="text-merah-penus">PENUS</span> E-VOTING
             </h1>
 
@@ -76,8 +76,8 @@ const Login: React.FC = () => {
             </div>
           </div>
 
-          <h5 className="text-center md:top-24 my-10 md:my-0 md:relative text-white text-xs md:text-xl font-semibold md:mb-8 md:text-putih-putih md:text-left">
-            Powered by <span className=" text-penus bg-white rounded-full font-bold md:text-merah-penus p-1 md:p-2">DEVACCTO RPL</span>
+          <h5 className="text-center my-10 md:relative text-white text-xs md:text-lg font-semibold md:mb-8 md:text-putih-putih md:text-left">
+            Powered by <span className=" text-penus bg-white rounded-full font-bold md:text-merah-penus p-1">DEVACCTO RPL</span>
           </h5>
         </div>
       </section>
