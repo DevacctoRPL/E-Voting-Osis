@@ -46,7 +46,7 @@ const ListKandidatOsis: React.FC = () => {
         <div className="flex items-center text-white mb-20">
           <div className="h-px w-16 md:w-20 bg-white"></div>
           <p className="text-xs md:text-lg mx-4 md:mx-4 text-center">
-            Tentukan Kandidat MPK Terbaikmu
+            Tentukan Kandidat OSIS Terbaikmu
           </p>
           <div className="h-px w-16 md:w-20 bg-white"></div>
         </div>

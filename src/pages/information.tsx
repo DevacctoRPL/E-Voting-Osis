@@ -63,22 +63,20 @@ const Information: React.FC = () => {
 {/*Revisi 2*/}
 
 <main className="mb-[13rem] font-poppins">
-  {/*}<div onClick={back} className="cursor-pointer z-10 w-[50px] h-[50px] rounded-full bg-gradient-to-r from-merah-penus to-merah-gelap-penus mt-[8rem] ml-5 flex items-center justify-center relative">
-    <img src={Arrow} alt="Back Arrow" className="w-[30px] h-[30px]" />
-  </div>*/}
-
   <div id="nomor" className="flex flex-col items-start justify-center w-full h-full">
     <h1 className="-z-1 text-[30rem] mt-[20rem] ml-[-7rem] md:text-[50rem] md:ml-[-5rem] text-black opacity-40 font-bold absolute">02</h1>
   </div>
   <div id="information" className="flex flex-col md:flex-row justify-between gap-[2rem] md:gap-[5rem] relative m-[3rem] md:mt-[5rem] mx-10 md:h-[25rem] md:w-[80rem]">
-    <div className="bg-gradient-to-b ml-[2rem] from-merah-penus to-merah-tergelap rounded-xl aspect-[3/4] max-h-[450px] w-[350px] md:max-h-[550px] drop-shadow-putih-cahaya-besar-besar border-putih-putih border-2 overflow-hidden">
-      <img src={Paslon1} alt="Paslon" className="w-full h-full object-cover" />
+    <div className="flex justify-center w-full">
+      <div className="bg-gradient-to-b from-merah-penus to-merah-tergelap rounded-xl max-h-[450px] w-[350px] md:max-h-[550px] drop-shadow-putih-cahaya-besar-besar border-putih-putih border-2 overflow-hidden">
+        <img src={Paslon1} alt="Paslon" className="w-full h-full object-cover" />
+      </div>
     </div>
 
     <div className="flex flex-col w-full md:w-[70%] justify-start items-start gap-[1.5rem] md:gap-[3rem] text-white">
       <div id="nama" className="items-center gap-0">
-        <div className="font-bold text-[1.5rem] flex justify-center md:text-[3rem] whitespace-nowrap">Dillon Donovan Damaswara Putra</div>
-        <div className="text-[1rem] flex justify-center md:text-[1.5rem] leading-none">Dillon juara indonesia dapat wifi 2 gbps</div>
+        <div className="font-bold text-[1.5rem] flex md:text-[3rem] md:whitespace-nowrap">Dillon Donovan Damaswara Putra </div>
+        <div className="text-[1rem] flex md:text-[1.5rem] leading-none">Dillon juara indonesia dapat wifi 2 gbps</div>
       </div>
 
       <div>
@@ -120,7 +118,9 @@ const Information: React.FC = () => {
   </div>
 </main>
 < Footer />
-      
+
+
+
     </>
   );
 };
