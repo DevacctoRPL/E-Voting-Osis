@@ -30,8 +30,6 @@ export default {
 # E-Voting-Osis
 
   - Reminder
-  Sebelumm mulai ngoding buka terminal install
   ```
   npm i
-  npm i apexcharts react-apexcharts
   ```
