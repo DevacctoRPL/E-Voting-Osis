@@ -2,7 +2,6 @@ import React, { createContext, useContext, useEffect, useState, } from "react";
 import { User } from "../types/types";
 import { getCurrentUser } from "../api/api";
 import { Outlet, useNavigate } from "react-router-dom";
-import { AxiosError } from "axios";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
@@ -22,7 +21,7 @@ export const UserProvider = () => {
     setUser(res)
   }
 
-  function onUserError(err: AxiosError) {
+  function onUserError() {
     nav('/')
   }
 
