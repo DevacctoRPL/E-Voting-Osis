@@ -1,6 +1,4 @@
 // Styling Component
-import Head from "../components/header";
-import Footer from "../components/footer";
 import React from "react";
 
 
@@ -74,10 +72,9 @@ const Admin: React.FC = () => {
 
   return (
     <>
-      <Head />
       <div className="container flex justify-center items-center w-screen h-screen mx-auto px-4 gap-16">
         {/* Osis */}
-        <div className="osis container bg-merah-tergelap w-3/4 h-2/5 rounded-2xl relative flex items-center justify-center">
+        <div className="osis p-6 container bg-merah-tergelap w-3/4 h-1/2 rounded-2xl relative flex items-center justify-center">
           <div className="absolute right-0 flex flex-col items-end justify-center h-full">
             <h1 className="text-[27rem] text-gelap opacity-10 font-extrabold">%</h1>
           </div>
@@ -112,7 +109,7 @@ const Admin: React.FC = () => {
           </ul>
         </div>
         {/* MPK */}
-        <div className="mpk container bg-merah-tergelap w-3/4 h-2/5 rounded-2xl relative flex items-center justify-center">
+        <div className="mpk p-6 container bg-merah-tergelap w-3/4 h-1/2 rounded-2xl relative flex items-center justify-center">
           <div className="absolute right-0 flex flex-col items-end justify-center h-full">
             <h1 className="text-[27rem] opacity-10 font-extrabold text-gelap">%</h1>
           </div>
@@ -147,7 +144,6 @@ const Admin: React.FC = () => {
           </ul>
         </div>
       </div>
-      <Footer />
     </>
   )
 };

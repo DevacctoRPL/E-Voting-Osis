@@ -36,48 +36,48 @@ const Login: React.FC = () => {
   }
 
   return (
-    <main className="flex gap-10 w-screen h-screen items-center justify-center overflow-hidden">
-      <section className="w-[70%] h-[80%] flex items-center justify-between">
-        <div id="Thumbnail" className="bg-gradient-to-t from-merah-gelap-penus from-60% to-merah-penus rounded-3xl h-[95%] w-1/2 flex items-center justify-center p-6">
+    <main className="flex md:gap-10 my-8 w-screen h-full md:h-screen items-center justify-center  ">
+      <section className="w-[70%] h-[80%] flex md:flex items-center justify-between max-md:flex-col">
+        <div id="Thumbnail" className="bg-gradient-to-t from-merah-gelap-penus from-60% to-merah-penus rounded-3xl h-[50%] md:h-[95%] md:w-1/2 flex items-center justify-center md:p-6 max-md:py-4">
           <img src={Voting} alt="Voting Amico" className="w-11/12 h-11/12" />
         </div>
-        <div id="Form" className="h-full w-[45%] flex flex-col items-start justify-center">
-          <div className="mb-6 w-full grow flex flex-col justify-center gap-3">
-            <h1 className="text-6xl text-white font-semibold mb-20 text-left mt-3">
+        <div id="Form" className="h-fit md:w-[45%] md:flex flex-col items-start justify-center">
+          <div className="mb-6 md:w-full grow flex flex-col md:justify-center gap-3">
+            <h1 className="text-xl text-nowrap md:text-6xl text-white font-semibold md:mb-10 text-center items-center md:text-left mt-3">
               <span className="text-merah-penus">PENUS</span> E-VOTING
             </h1>
 
-            <h2 className="text-4xl text-white font-bold ml-2 text-left mt-1">Masuk</h2>
+            <h2 className="md:text-4xl text-white font-semibold md:font-bold md:ml-2 text-center md:text-left mt-3 md:mt-1">Masuk</h2>
 
             <div className="mb-3">
-              <label htmlFor="nisNig" className="block text-putih-putih text-2xl font-medium ml-2 mb-2 text-left">
+              <label htmlFor="nisNig" className="block text-putih-putih text-sm md:text-2xl font-medium ml-2 mb-2 text-left">
                 NIS/NIG
               </label>
               <input type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 console.log("nis", NIS)
                 handleOnchanges("NIS", e)
-              }} id="nisNig" placeholder="Masukkan NIS anda" className="w-full rounded-full px-3 py-2 text-black  focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300" required />
+              }} id="nisNig" placeholder="Masukkan NIS anda" className="w-52 md:w-full rounded-full px-3 py-2 text-laut-dalam placeholder:text-sm  focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300 max-md:w-full" required />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="password" className="block text-putih-putih text-2xl font-medium ml-2 mb-2 text-left">
+              <label htmlFor="password" className="block text-putih-putih text-sm md:text-2xl font-medium ml-2 mb-2 text-left">
                 Kata Sandi
               </label>
               <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 console.log("pass", Password)
                 handleOnchanges("Pass", e)
-              }} type="password" id="password" placeholder="Masukkan password anda" className="w-full rounded-full px-3 py-2 text-laut-dalam focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300" required />
+              }} type="password" id="password" placeholder="Masukkan password anda" className="w-52 md:w-full rounded-full px-3 py-2 text-laut-dalam placeholder:text-sm focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300 max-md:w-full" required />
             </div>
 
-            <div className="mt-6">
+            <div className="md:mt-6 md:items-start md:justify-start w-full flex justify-center">
               <div onClick={() => handleLogin()} className="w-1/2 bg-merah-penus text-center text-white font-bold py-2 px-4 rounded-full hover:drop-shadow-merah-penus-bayangan hover:scale-105 transition-all duration-300">
                 {PostLoginData.isPending ? "Logging in" : "Masuk"}
               </div>
             </div>
           </div>
 
-          <h5 className="text-xl font-semibold mb-8 text-putih-putih text-left">
-            Powered by <span className="font-bold text-merah-penus">DEVACCTO RPL</span>
+          <h5 className="text-center my-10 md:relative text-white text-xs md:text-lg font-semibold md:mb-8 md:text-putih-putih md:text-left">
+            Powered by <span className=" text-penus bg-white rounded-full font-bold md:text-merah-penus p-1">DEVACCTO RPL</span>
           </h5>
         </div>
       </section>
@@ -86,4 +86,3 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-

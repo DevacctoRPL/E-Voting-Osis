@@ -6,6 +6,20 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        slideR: {
+          '0%': { transform: 'translateX(-675px)' },
+          '100%': { transform: 'translateX(480px)' },
+        },
+        slideL: {
+          '0%': { transform: 'translateX(410px)' },
+          '100%': { transform: 'translateX(-1050px)' },
+        },
+      },
+      animation: {
+        slideR: 'slideR 20s linear infinite',
+        slideL: 'slideL 20s linear infinite',
+      },
       dropShadow: {
         'kuning-osis': '0 0 50px rgba(253, 224, 71, 0.4)',
         'biru-mpk': '0 0 50px rgba(147, 197, 253, 0.4)',
@@ -29,6 +43,7 @@ export default {
         'putih-putih': '#D9D9D9',
         'merah-tergelap' : '#6D1408',
         'gelap' : '#1F2937',
+        'penus' : '#C80000',
       },
       fontSize: {
         '7.5xl': '7rem',
