@@ -4,6 +4,13 @@ import { useParams } from 'react-router-dom';
 import { candidates } from '../utils/candidates';
 
 const Information: React.FC = () => {
+  /*
+   *
+   *  0/10 code
+   *  Adeli tolong dipelajari lagi yah clean codenya 😊😊😊😊
+   *
+   * */
+
   const { id } = useParams<{ id: string }>()
   const candidate = candidates.find((cad)=>cad.id === parseInt(id as string))
   return (
