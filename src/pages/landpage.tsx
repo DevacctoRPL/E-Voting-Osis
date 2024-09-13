@@ -3,12 +3,10 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 // Resource
-import Lampu from "/lampu.png";
-import Cursor from "/click.png";
-import Osis from "/osis.png";
-import Mpk from "/mpk.png";
-
-import Head from "../components/header"
+import Lampu from "/assets/lampu.png";
+import Cursor from "/assets/click.png";
+import Osis from "/assets/osis.png";
+import Mpk from "/assets/mpk.png";
 
 const Landpage: React.FC = () => {
   const navigate = useNavigate();
@@ -19,7 +17,6 @@ const Landpage: React.FC = () => {
 
   return (
     <>
-      <Head />
       <div className="overflow-hidden">
         <div className="w-screen h-screen p-24 flex flex-col justify-center relative overflow-hidden max-md:p-4">
           <div className="absolute inset-0 flex flex-col justify-center items-stretch z-[-1] pointer-events-none gap-32">

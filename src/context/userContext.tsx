@@ -25,7 +25,6 @@ export const UserProvider = () => {
     nav('/')
   }
 
-
   useEffect(() => {
     if (user !== null && user !== undefined) {
       return () => {

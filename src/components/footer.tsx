@@ -1,4 +1,4 @@
-import Penus from '/penus.png';
+import Penus from '/assets/penus.png';
 
 
 const Footer: React.FC = () => {

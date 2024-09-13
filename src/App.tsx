@@ -6,9 +6,9 @@ import { UserProvider } from './context/userContext';
 import Login from './pages/login';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Landpage from './pages/landpage';
-import ListKandidatMPK from './pages/listKandidatMPK';
-import ListKandidatOsis from './pages/listKandidatOsis';
 import Information from './pages/information';
+import ListKandidat from './pages/listKandidat';
+import Admin from './pages/adminDashboard';
 
 const App: React.FC = () => {
   const query = new QueryClient()
@@ -19,10 +19,9 @@ const App: React.FC = () => {
           <Route path="/" Component={Login} />
           <Route element={<UserProvider />}>
             <Route path="/landpage" element={<Landpage />} />
-            <Route path="/" element={<Landpage />} />
-            <Route path="/listkandidat/MPK" Component={ListKandidatMPK} />
-            <Route path="/listkandidat/OSIS" Component={ListKandidatOsis} />
-            <Route path="/information" Component={Information} />
+            <Route path="/listkandidat/:org" Component={ListKandidat} />
+            <Route path="/information/:id" Component={Information} />
+            <Route path="/votes" Component={Admin}/>
           </Route>
         </Routes>
       </Router>

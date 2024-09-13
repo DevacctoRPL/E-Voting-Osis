@@ -1,6 +1,6 @@
 // src/pages/Login.tsx
 import { useMutation } from '@tanstack/react-query';
-import Voting from '/Voting-amico.svg';
+import Voting from '/assets/Voting-amico.svg';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginFn } from '../api/api';

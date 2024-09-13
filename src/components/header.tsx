@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 
-import Penus from "/penus.png";
-import User from "/user.png";
-import Logout from "/logout.png";
+import Penus from "/assets/penus.png";
+import User from "/assets/user.png";
 import { UserContext } from "../context/userContext";
+import { LogOut } from "lucide-react";
 
 const Head: React.FC = () => {
   const user = useContext(UserContext);
@@ -44,7 +44,7 @@ const Head: React.FC = () => {
               <p className="font-bold">{user?.user?.Nama}</p>
               <hr className="w-[130%] border border-black mb-2" />
               <div className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
-                <img src={Logout} alt="" className="w-[20%] scale-x-[-1]" />
+                <LogOut />
               </div>
             </aside>
           </div>
@@ -73,7 +73,7 @@ const Head: React.FC = () => {
               <p className="font-bold">{user?.user?.Nama}</p>
               <hr className="w-[130%] border border-black mb-2" />
               <div className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
-                <img src={Logout} alt="" className="w-[20%] scale-x-[-1]" />
+                <img alt="hai" className="w-[20%] scale-x-[-1]" />
               </div>
             </aside>
           </div>
