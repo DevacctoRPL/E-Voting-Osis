@@ -1,12 +1,13 @@
 import { candidate } from "../types/types";
 
+
 export const candidates: candidate[] = [
   {
     id: 1,
     org: "OSIS",
     nopil: 1,
-    nama_ketua: "Mustofa azizah",
-    nama_wakil: "Rijal ahmad yani",
+    nama_ketua: "Vincent Dennis Karmawan",
+    nama_wakil: "Vivian",
     misi: "bikin kentang mustofa sebagai makanan khas indonesia",
     visi: "kentang mustofa sebagai makanan khas indonesia",
   },

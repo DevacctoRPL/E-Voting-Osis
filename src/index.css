@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes lamakeunpan {
+  0% {
+    opacity:1;
+  }
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.lama{
+  animation: lamakeunpan 5s ease-in ;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */

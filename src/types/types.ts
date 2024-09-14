@@ -24,5 +24,6 @@ export type candidate = {
   nama_wakil: string,
   visi: string,
   misi: string,
+  images?:string[],
   votes?: number,
 }
