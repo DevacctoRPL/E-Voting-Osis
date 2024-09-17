@@ -29,6 +29,9 @@ export type candidate = {
   nama_wakil: string,
   visi: string,
   misi: string[],
-  proker: string[],
+  proker: {
+    Jangka_Pendek: string[],
+    Jangka_Panjang: string[],
+  },
   votes?: number,
 }
