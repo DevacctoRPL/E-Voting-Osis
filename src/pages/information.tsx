@@ -17,7 +17,7 @@ const Information: React.FC = () => {
         <p className="z-[-1] absolute md:w-75% md:text-[30rem] top-[-10rem] left-[-1rem] text-black opacity-40 font-bold">0{candidate?.nopil}</p>
 
           <div className="max-w-[30%] border-2 border-white bg-merah-penus rounded-xl shadow-white shadow-xl">
-            <ImageAnimation />
+            <ImageAnimation candidate={parseInt(id as string)}/>
           </div>
 
         <div className="flex flex-col w-full items-center justify-center px-5 md:px-0 md:w-[50%] gap-10 md:text-left">
