@@ -8,7 +8,8 @@ export const candidates: candidate[] = [
     nopil: 1,
     nama_ketua: "Vincent Dennis Karmawan",
     nama_wakil: "Vivian",
-    misi: "bikin kentang mustofa sebagai makanan khas indonesia",
+    misi: [],
+    proker: [],
     visi: "kentang mustofa sebagai makanan khas indonesia",
   },
   {
@@ -17,7 +18,8 @@ export const candidates: candidate[] = [
     nopil: 1,
     nama_ketua: "Haifa Tsabita",
     nama_wakil: "Bryan Caesar Latuhamina",
-    misi: "bikin kentang mustofa sebagai makanan khas indonesia",
+    misi: [],
+    proker: [],
     visi: "kentang mustofa sebagai makanan khas indonesia",
   },
   {
@@ -26,7 +28,8 @@ export const candidates: candidate[] = [
     nopil: 2,
     nama_ketua: "Riyandi Feriansyah Putra",
     nama_wakil: "Nurul Agustian Ramadani",
-    misi: "bikin kentang mustofa sebagai makanan khas indonesia",
+    misi: [],
+    proker: [],
     visi: "kentang mustofa sebagai makanan khas indonesia",
   },
   {
@@ -35,7 +38,8 @@ export const candidates: candidate[] = [
     nopil: 2,
     nama_ketua: "Shoffi Dinda Rosalam",
     nama_wakil: "Muhammad Imam Aulia",
-    misi: "bikin kentang mustofa sebagai makanan khas indonesia",
+    misi: [],
+    proker: [],
     visi: "kentang mustofa sebagai makanan khas indonesia",
   },
 ]

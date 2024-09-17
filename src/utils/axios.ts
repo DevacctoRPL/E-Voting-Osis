@@ -8,6 +8,7 @@ const apiclient = axios.create({
   },
   withCredentials: true,
 })
+
 export const apicall:apicalltype = async (path, data?) => {
   const res = apiclient.get(path)
   if (data) {
