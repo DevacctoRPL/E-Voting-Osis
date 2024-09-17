@@ -3,6 +3,11 @@ export type LoginUserReq = {
   password: number
 }
 
+export type VoteReq ={
+  No_Pilihan: number,
+  NIU: string,
+}
+
 export type User = {
   id: number;
   Nama: string;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {candidates} from "../utils/candidates"
-import PaslonOSIS1 from '../assets/FOTO_OSIS1/OSIS_ 07.png'
-import PaslonMPK1 from '../assets/FOTO_MPK1/OSIS_ 12.png'
-import PaslonOSIS2 from '../assets/FOTO_OSIS2/OSIS_ 21.png'
-import PaslonMPK2 from '../assets/FOTO_MPK2/OSIS_ 32.png'
+import PaslonOSIS1 from '../assets/FOTO_OSIS1/OSIS_ 01.png'
+import PaslonMPK1 from '../assets/FOTO_MPK1/OSIS_ 1B.png'
+import PaslonOSIS2 from '../assets/FOTO_OSIS2/OSIS_ 2A.png'
+import PaslonMPK2 from '../assets/FOTO_MPK2/OSIS_ 2B.png'
 import { useNavigate, useParams } from "react-router-dom";
 
 // Daftar kandidat

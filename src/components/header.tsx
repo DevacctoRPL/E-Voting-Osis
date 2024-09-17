@@ -4,9 +4,20 @@ import Penus from "/assets/penus.png";
 import User from "/assets/user.png";
 import { UserContext } from "../context/userContext";
 import { LogOut } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { LogoutFn } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
 const Head: React.FC = () => {
   const user = useContext(UserContext);
+  const nav = useNavigate()
+
+  const {isSuccess,refetch} = useQuery({
+    queryKey: ["logoutcog"],
+    queryFn:LogoutFn,
+    enabled:false,
+  })
+
   useEffect(() => {
     const handleScroll = () => {
       const nav = document.querySelector("nav");
@@ -20,6 +31,13 @@ const Head: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if(isSuccess){
+      nav('/')
+    }
+  }, [isSuccess])
+  
 
   return (
     <nav className="bg-transparent transition-all duration-600 ease-in-out fixed top-0 w-full h-fit z-50 p-2 border-b-[1px] border-slate-700/20 max-md:p-0">
@@ -43,7 +61,7 @@ const Head: React.FC = () => {
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
               <p className="font-bold">{user?.user?.Nama}</p>
               <hr className="w-[130%] border border-black mb-2" />
-              <div className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
+              <div onClick={()=>refetch()} className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
                 <LogOut />
               </div>
             </aside>
