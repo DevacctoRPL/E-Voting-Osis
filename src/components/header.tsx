@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from "react";
 
 import Penus from "/assets/penus.png";
-import User from "/assets/user.png";
 import { UserContext } from "../context/userContext";
-import { LogOut } from "lucide-react";
+import { LogOut, User } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { LogoutFn } from "../api/api";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +40,7 @@ const Head: React.FC = () => {
 
   return (
     <nav className="bg-transparent transition-all duration-600 ease-in-out fixed top-0 w-full h-fit z-50 p-2 border-b-[1px] border-slate-700/20 max-md:p-0">
-      <div className="container mx-auto p-1 flex justify-between items-center">
+      <div className=" p-1 flex justify-between items-center">
         <div className="w-full flex justify-between items-center px-11 max-md:hidden">
           <a href="/landpage" className="m-1">
             <img src={Penus} alt="Logo" className="w-16" />
@@ -52,12 +51,7 @@ const Head: React.FC = () => {
             </h3>
           </div>
           <div className="relative group flex flex-col items-center h-auto w-auto">
-            <img
-              src={User}
-              id="showNav"
-              className="rounded-full  cursor-pointer max-md:w-9"
-              alt="user"
-            />
+            <User />
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
               <p className="font-bold">{user?.user?.Nama}</p>
               <hr className="w-[130%] border border-black mb-2" />
@@ -68,25 +62,22 @@ const Head: React.FC = () => {
           </div>
         </div>
         {/* Mobile Design */}
-        <div className="flex justify-center w-full md:hidden">
-          <div className="flex relative pt-8 scale-90">
-            <a href="/landpage" className="">
+        <div className="w-full flex justify-between items-center md:hidden px-3 pb-5 pt-3">
+          <div className="flex relative scale-90">
+            <a href="/landpage" className="pt-2">
               <img src={Penus} alt="Logo" className="w-11" />
             </a>
+          </div>
             <div className="flex flex-col">
-              <h3 className="text-lg font-extrabold leading-7 text-putih-putih">
+              <h3 className="text-md font-extrabold leading-7 text-putih-putih">
                 SMK <span className="text-merah-penus">PLUS</span> PELITA NUSANTARA
               </h3>
               <i className="text-sm text-white leading-3">Success By Character</i>
             </div>
-          </div>
           <div className="relative group flex flex-col mt-2 items-center h-auto w-auto">
-            <img
-              src={User}
-              id="showNav"
-              className="rounded-full ml-1 cursor-pointer max-md:w-9"
-              alt="user"
-            />
+            <div className="w-fit bg-merah-penus border border-putih-putih p-1 rounded-full">
+            <User className="text-putih-putih"/>
+            </div>
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
               <p className="font-bold">{user?.user?.Nama}</p>
               <hr className="w-[130%] border border-black mb-2" />

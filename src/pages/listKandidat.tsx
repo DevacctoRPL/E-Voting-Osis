@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {candidates} from "../utils/candidates"
 import PaslonOSIS1 from '../assets/FOTO_OSIS1/OSIS_ 01.webp'
-import PaslonMPK1 from '../assets/FOTO_MPK1/OSIS_01.webp'
+import PaslonMPK1 from '../assets/FOTO_MPK1/OSIS_ 01.webp'
 import PaslonOSIS2 from '../assets/FOTO_OSIS2/OSIS_ 01.webp'
-import PaslonMPK2 from '../assets/FOTO_MPK2/OSIS_01.webp'
+import PaslonMPK2 from '../assets/FOTO_MPK2/OSIS_ 01.webp'
 
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -35,7 +35,7 @@ const ListKandidat: React.FC = () => {
   };
 
   return (
-    <main className="max-md:pt-20 pt-16">
+    <main className="pt-16">
       <div className="text-white flex flex-col items-center justify-center py-10 mb-14">
         <div className="flex items-center text-white mb-20">
           <div className="h-px w-16 md:w-20 bg-white"></div>
@@ -45,12 +45,12 @@ const ListKandidat: React.FC = () => {
           <div className="h-px w-16 md:w-20 bg-white"></div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-10 md:flex md:mt-8  md:gap-32">
+        <div className="flex justify-center md:mt-8 ">
           {cands.map((candidate,idx) => {
             return <div key={candidate.id} className="flex flex-col items-center">
               <div
                 onClick={()=> pilih(candidate.id.toString())}
-                className="drop-shadow-putih-cahaya flex flex-col items-center bg-gradient-to-t from-merah-gelap-penus to-merah-penus to-40% rounded-lg justify-end px-1 w-32 h-52 md:w-52 md:h-64 border-solid border-2 hover:drop-shadow-putih-cahaya-besar hover:scale-105 duration-300"
+                className="drop-shadow-putih-cahaya flex items-center bg-gradient-to-t from-merah-gelap-penus to-merah-penus to-40% rounded-lg justify-center px-1 w-[75%] md:w-[50%] border-solid border-2 hover:drop-shadow-putih-cahaya-besar hover:scale-105 duration-300"
               >
                 <div
                   id="dot"

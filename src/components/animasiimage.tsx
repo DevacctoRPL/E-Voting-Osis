@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 
 export default function ImageAnimation({ candidate }: { candidate: number }) {
   const [FotoPaslon, setFotoPaslon] = useState("")
-  const [Opacity, setOpacity] = useState<1 | 0>(1)
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
@@ -43,20 +42,19 @@ export default function ImageAnimation({ candidate }: { candidate: number }) {
     loadImages();
   }, []);
 
-
   useEffect(() => {
+    const img = document.getElementById("imeg")
     setFotoPaslon(images[0])
-
     const interval = setInterval(() => {
-      setOpacity(0)
-
+      img?.classList.remove("opacity-1")
+      img?.classList.add("opacity-0")
       setTimeout(() => {
         const rad = Math.floor(Math.random() * images.length)
-        setOpacity(1)
         setFotoPaslon(images[rad])
-        console.log(Opacity)
-      }, 5000)
-    }, 10000)
+        img?.classList.remove("opacity-0")
+        img?.classList.add("opacity-1")
+      }, 2000)
+    }, 6000)
 
     return () => clearInterval(interval)
   }, [images])
@@ -66,7 +64,9 @@ export default function ImageAnimation({ candidate }: { candidate: number }) {
   }
 
   return (
-    <img src={FotoPaslon} alt="Foto Calon" className={`opacity-${Opacity} transition-all duration-[7000ms]`} />
+    <div className="a">
+      <img id="imeg" src={FotoPaslon} alt="Foto Calon" className={' transition-all duration-[4000ms]'} />
+    </div>
   )
 }
 

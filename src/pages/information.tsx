@@ -7,7 +7,7 @@ import { VoteFn } from '../api/api';
 import { UserContext } from '../context/userContext';
 
 const Information: React.FC = () => {
-  const user= useContext(UserContext)
+  const user = useContext(UserContext)
   const nav = useNavigate()
 
   const VoteData = useMutation({
@@ -18,19 +18,19 @@ const Information: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const candidate = candidates.find((cad) => cad.id === parseInt(id as string))
 
-  const handleVote = ()=>{
+  const handleVote = () => {
     const kemanacog = candidate?.org === "OSIS" ? "MPK" : "OSIS"
-    VoteData.mutate({NIU:user?.user?.NIU as string, No_Pilihan:parseInt(id as string)})
+    VoteData.mutate({ NIU: user?.user?.NIU as string, No_Pilihan: parseInt(id as string) })
     VoteData.isSuccess ? nav(`/listkandidat/${kemanacog}`) : console.log("lah error pea")
   }
 
   return (
     <div className="w-full h-full md:flex md:flex-row my-[8rem] font-poppins text-white justify-between items-center lg:items-start lg:gap-12 lg:justify-center">
+      <p className="z-[-1] top-[-2rem] left-0 absolute text-[14rem] w-[75%] md:w-[75%] md:text-[30rem] lg:top-[-10rem] lg:left-[-1rem] text-black opacity-40 font-bold">0{candidate?.nopil}</p>
 
-      <p className="z-[-1] top-[-2rem] left-2 absolute text-[14rem] w-[75%] md:w-[75%] md:text-[30rem] lg:top-[-10rem] lg:left-[-1rem] text-black opacity-40 font-bold">0{candidate?.nopil}</p>
+      <div className="w-full relative flex items-center mb-[4rem] justify-center lg:mb-0 md:w-[30%] lg:flex-none">
 
-      <div className="w-full flex items-center mb-[4rem] justify-center lg:mb-0 md:w-[30%] lg:flex-none">
-        <div className="flex w-[70%] md:w-full  border-2 border-white bg-merah-penus rounded-xl shadow-white shadow-xl">
+        <div className="flex w-[70%] md:w-full border-2 border-white bg-merah-penus rounded-xl shadow-white shadow-xl">
           <ImageAnimation candidate={parseInt(id as string)} />
         </div>
       </div>
@@ -45,18 +45,33 @@ const Information: React.FC = () => {
           <p className="w-fit text-[2rem] font-bold bg-merah-penus px-2 py-1">Visi</p>
           <p className="ml-3 text-[1.2rem]">{candidate?.visi}</p>
         </div>
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col self-center items-center gap-4">
           <p className="w-fit text-[2rem] font-bold bg-merah-penus px-2 py-1">Misi</p>
           <ol className="flex flex-col ml-3 text-[1.2rem] leading-relaxed lg:gap-4 gap-6 text-3">
-            {candidate?.misi.map((misi,index)=>(
+            {candidate?.misi.map((misi, index) => (
               <li><span className="mr-2 text-[1.1rem] font-bold">{index + 1}.</span>{misi}</li>
             ))}
           </ol>
         </div>
-        <div className="flex flex-col gap-4">
-          <p className="w-fit text-[2rem] font-bold bg-merah-penus px-2 py-1">Program Kerja</p>
+        <div className="w-full flex flex-col items-center gap-4">
+          <p className="w-fit text-[2rem] font-bold bg-merah-penus px-2 py-1 mb-5">Program Kerja</p>
+          <p className="ml-3 text-[1.4rem] font-bold ">A. Jangka Pendek: </p>
+<ol className="flex flex-col ml-4 text-[1.2rem] leading-relaxed lg:gap-4 gap-6 text-3 mb-3">
+            {candidate?.proker.Jangka_Pendek.map((misi, index) => (
+              <li><span className="mr-2 text-[1.1rem] font-bold">{index + 1}.</span>{misi}</li>
+            ))}
+          </ol>
+          <p className="ml-3 text-[1.4rem] font-bold">B. Jangka Panjang: </p>
+<ol className="flex flex-col ml-4 text-[1.2rem] leading-relaxed lg:gap-4 gap-6 text-3 ">
+            {candidate?.proker.Jangka_Panjang.map((misi, index) => (
+              <li><span className="mr-2 text-[1.1rem] font-bold">{index + 1}.</span>{misi}</li>
+            ))}
+          </ol>
         </div>
-        <p onClick={handleVote} className="w-fit text-[2rem] mt-[4rem] font-bold bg-merah-penus px-[4rem] py-2 rounded-full border-white border-2 hover:cursor-pointer hover:shadow-lg hover:shadow-white hover:scale-[110%] duration-500">Vote</p>
+        <div className="w-[65%] self-start flex justify-between mt-[2rem] items-center p-3">
+          <button className="underline text-white hover:text-merah-penus">Kembali</button>
+          <p onClick={handleVote} className="w-fit shadow-lg justify-self-center text-[2rem] font-bold bg-merah-penus px-[3rem] py-[0.10rem] rounded-full border-white border-2 hover:cursor-pointer hover:shadow-lg hover:drop-shadow-cahaya-putih hover:scale-[110%] duration-500">Vote</p>
+        </div>
       </div>
     </div>
   );
