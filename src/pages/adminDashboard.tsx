@@ -4,42 +4,13 @@ import React from "react";
 
 //npm i apexcharts react-apexcharts
 import Chart, { Props } from "react-apexcharts";
+import { OrgImage } from "../components/animasiimage";
 
 const chartOsis: Props = {
   type: "donut",
-  width: 220,
-  height: 220,
-  series: [44, 55, 13],
-  options: {
-    chart: {
-      toolbar: {
-        show: false,
-      },
-    },
-
-    dataLabels: {
-      enabled: true,
-    },
-    plotOptions: {
-      pie: {
-        donut: {
-          size: "55%",
-        },
-      },
-    },
-    labels: ['Elon Musk', 'Dillon Donovan Damaswara Putra', 'Gojoj Simanjuntak Junior'],
-    colors: ["#020617", "#ff8f00", "#00897b"],
-    legend: {
-      show: false,
-    },
-  },
-};
-
-const chartMPK: Props = {
-  type: "donut",
-  width: 220,
-  height: 220,
-  series: [44, 55, 13],
+  width: 400,
+  height: 400,
+  series: [65, 35],
   options: {
     chart: {
       toolbar: {
@@ -55,12 +26,47 @@ const chartMPK: Props = {
     plotOptions: {
       pie: {
         donut: {
-          size: "55%",
+          labels: {
+            show: false,
+          },
+          size: "50%",
         },
       },
     },
-    labels: ['Elon Musk', 'Dillon Donovan Damaswara Putra', 'Gojoj Simanjuntak Junior'],
-    colors: ["#020617", "#ff8f00", "#00897b"],
+    labels: ['Elon Musk', 'Dillon Donovan Damaswara Putra'],
+    colors: ["#6D1408", "#D9D9D9"],
+    legend: {
+      show: false,
+    },
+  },
+};
+
+const chartMPK: Props = {
+  type: "donut",
+  width: 400,
+  height: 400,
+  series: [45, 55],
+  options: {
+    chart: {
+      toolbar: {
+        show: false,
+      },
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function(val: number) {
+        return val.toFixed(1) + '%';
+      },
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: "50%",
+        },
+      },
+    },
+    labels: ['Elon Musk', 'Dillon Donovan Damaswara Putra'],
+    colors: ["#00897b", "#FFEA00"],
     legend: {
       show: false,
     },
@@ -72,76 +78,34 @@ const Admin: React.FC = () => {
 
   return (
     <>
-      <div className="container flex justify-center items-center w-screen h-screen mx-auto px-4 gap-16">
-        {/* Osis */}
-        <div className="osis p-6 container bg-merah-tergelap w-3/4 h-1/2 rounded-2xl relative flex items-center justify-center">
-          <div className="absolute right-0 flex flex-col items-end justify-center h-full">
-            <h1 className="text-[27rem] text-gelap opacity-10 font-extrabold">%</h1>
+      <div className="w-full h-[35vw] mt-[10vw] flex justify-around items-center">
+        <div className="flex flex-col relative w-fit items-center gap-5">
+          <div className="w-fit rounded-2xl px-2 py-5 drop-shadow-biru-mpk">
+            <Chart {...chartMPK} />
           </div>
-          <div className="label top-0 left-0 bg-putih-putih w-32 flex flex-col items-start rounded-br-2xl rounded-tl-2xl overflow-hidden absolute">
-            <h2 className="font-bold m-2 mx-auto">OSIS</h2>
-            <span className="w-full p-1 italic text-xs bg-white text-center">graphic result</span>
-          </div>
-          <table className="w-1/3 h-1/3 bg-putih-putih text-center rounded-md">
-            <thead>
-              <tr>
-                <th className="border-r-4 border-b-4 border-gray-800 p-2">No</th>
-                <th className="border-b-4 border-gray-800">Vote</th>
-              </tr>
-            </thead>
-            <tbody>
-              {chartOsis.series?.map((chart, index) => {
-                return <tr key={index}>
-                  <td className="border-r-4 border-t-4 border-gray-800 p-2">0{index + 1}</td>
-                  <td className="border-t-4 border-gray-800">{chart.toString()}</td>
-                </tr>
-              })}
-            </tbody>
-          </table>
-
-          <Chart {...chartOsis} />
-
-          <ul className="flex flex-col gap-4">
-            <span className="text-white italic">Live Voting Precentage</span>
-            <li className="flex items-center gap-4"><div className="w-5 h-5 rounded-full bg-white"></div>Elon Musk</li>
-            <li className="flex items-center gap-4"><div className="w-5 h-5 rounded-full bg-white"></div>Elon Musk</li>
-            <li className="flex items-center gap-4"><div className="w-5 h-5 rounded-full bg-white"></div>Elon Musk</li>
-          </ul>
+          <OrgImage Org={"MPK"} className="absolute top-[24%] left-[35%] w-[32%]" />
+          <p className="text-white font-bold text-[3rem]">MPK</p>
         </div>
-        {/* MPK */}
-        <div className="mpk p-6 container bg-merah-tergelap w-3/4 h-1/2 rounded-2xl relative flex items-center justify-center">
-          <div className="absolute right-0 flex flex-col items-end justify-center h-full">
-            <h1 className="text-[27rem] opacity-10 font-extrabold text-gelap">%</h1>
+        <div className="flex relative flex-col w-fit items-center gap-5">
+          <div className="w-fit rounded-2xl px-2 py-5  drop-shadow-kuning-osis">
+            <Chart {...chartOsis} />
           </div>
-          <div className="label top-0 left-0 bg-putih-putih w-32 flex flex-col items-start rounded-br-2xl rounded-tl-2xl overflow-hidden absolute">
-            <h2 className="font-bold m-2 mx-auto">MPK</h2>
-            <span className="w-full p-1 italic text-xs bg-white text-center">graphic result</span>
+          <OrgImage Org={"OSIS"} className="absolute top-[23%] left-[31%] w-[39%]" />
+          <p className="text-white font-bold text-[3rem]">OSIS</p>
+          <div className="w-[75%] text-white flex gap-3 justify-between items-center ">
+            <div className="w-full flex justify-between items-center">
+              <div className={`w-full flex text-[2rem] bg-[#6D1408] px-4 justify-around  rounded-full gap-3 items-center border border-white`}>
+                <p>01</p>
+                <div className="h-20 border-l-2 border-l-white"></div>
+                <p>{chartOsis.series?.[0].toString()}</p>
+              </div>
+              <div className={`w-full text-black flex text-[2rem] bg-[#D9D9D9] px-4 justify-around  rounded-full gap-3 items-center border  border-white`}>
+                <p>02</p>
+                <div className="h-20 border-l-2 border-l-white"></div>
+                <p>{chartOsis.series?.[1].toString()}</p>
+              </div>
+            </div>
           </div>
-          <table className="w-1/3 h-1/3 bg-putih-putih text-center rounded-md">
-            <thead>
-              <tr>
-                <th className="border-r-4 border-b-4 border-gray-800 p-2">No</th>
-                <th className="border-b-4 border-gray-800">Vote</th>
-              </tr>
-            </thead>
-            <tbody>
-              {chartMPK.series?.map((chart, index) => {
-                return <tr key={index}>
-                  <td className="border-r-4 border-t-4 border-gray-800 p-2">0{index + 1}</td>
-                  <td className="border-t-4 border-gray-800">{chart.toString()}</td>
-                </tr>
-              })}
-            </tbody>
-          </table>
-
-          <Chart {...chartMPK} />
-
-          <ul className="flex flex-col gap-4">
-            <span className="text-white italic">Live Voting Precentage</span>
-            <li className="flex items-center gap-4"><div className="w-5 h-5 rounded-full bg-white"></div>Elon Musk</li>
-            <li className="flex items-center gap-4"><div className="w-5 h-5 rounded-full bg-white"></div>Elon Musk</li>
-            <li className="flex items-center gap-4"><div className="w-5 h-5 rounded-full bg-white"></div>Elon Musk</li>
-          </ul>
         </div>
       </div>
     </>

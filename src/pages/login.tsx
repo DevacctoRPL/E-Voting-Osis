@@ -71,9 +71,9 @@ const Login: React.FC = () => {
             </div>
 
             <div className="md:mt-6 md:items-start md:justify-start w-full flex justify-center">
-              <div onClick={() => handleLogin()} className="w-1/2 bg-merah-penus text-center text-white font-bold py-2 px-4 rounded-full hover:drop-shadow-merah-penus-bayangan hover:scale-105 transition-all duration-300">
+              <button onClick={() => handleLogin()} className="w-1/2 bg-merah-penus text-center text-white font-bold py-2 px-4 rounded-full hover:drop-shadow-merah-penus-bayangan hover:scale-105 transition-all duration-300">
                 {PostLoginData.isPending ? "Logging in" : "Masuk"}
-              </div>
+              </button>
             </div>
           </div>
 

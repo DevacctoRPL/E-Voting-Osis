@@ -1,5 +1,7 @@
 import { Loader2Icon } from 'lucide-react';
 import { useEffect, useState } from 'react'
+import FotoMPK from '/assets/mpk.png'
+import FotoOSIS from '/assets/osis.png'
 
 export default function ImageAnimation({ candidate }: { candidate: number }) {
   const [FotoPaslon, setFotoPaslon] = useState("")
@@ -53,8 +55,8 @@ export default function ImageAnimation({ candidate }: { candidate: number }) {
         setFotoPaslon(images[rad])
         img?.classList.remove("opacity-0")
         img?.classList.add("opacity-1")
-      }, 2000)
-    }, 6000)
+      }, 3500)
+    }, 7000)
 
     return () => clearInterval(interval)
   }, [images])
@@ -70,3 +72,19 @@ export default function ImageAnimation({ candidate }: { candidate: number }) {
   )
 }
 
+export function OrgImage({Org, className}:{Org:"OSIS" | "MPK", className: string}) {
+  const [OrgFoto, setOrgFoto] = useState<string>()
+  useEffect(()=> {
+    switch (Org) {
+      case "OSIS":
+        setOrgFoto(FotoOSIS)
+        break;
+
+      case "MPK":
+        setOrgFoto(FotoMPK)
+        break;
+    }
+  },[Org])
+
+  return <img src={OrgFoto} alt={`Foto ${Org}`} className={className} />
+}

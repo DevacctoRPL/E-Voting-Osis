@@ -18,10 +18,12 @@ export const UserProvider = () => {
   const [user, setUser] = useState<User | null | undefined>();
   const nav = useNavigate()
   function onUserSuccess(res: User | null | undefined) {
+    console.log('yez')
     setUser(res)
   }
 
   function onUserError() {
+    console.error('error')
     nav('/')
   }
 
@@ -34,6 +36,7 @@ export const UserProvider = () => {
 
     try {
       getCurrentUser().then(onUserSuccess).catch(onUserError)
+      console.log("yep")
     } catch (error) {
       throw new Error(`${error}`)
     }

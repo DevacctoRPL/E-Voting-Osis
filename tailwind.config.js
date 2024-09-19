@@ -25,6 +25,7 @@ export default {
         'biru-mpk': '0 0 50px rgba(147, 197, 253, 0.4)',
         'kuning-lampu': '0 0 20px rgba(253, 224, 71, 1)',
         'merah-penus-bayangan': '0 0 15px rgba(211, 39, 16, 0.4)',
+        'merah-vote': '0 0 50px rgba(211, 39, 16, 1)',
         'putih-cahaya': '0 0 5px rgba(255, 255, 255, 0.4)',
         'putih-cahaya-besar': '0 0 20px rgba(255, 255, 255, 0.4)',
         'putih-cahaya-besar-besar': '0 12px 15px rgba(255, 255, 255, 0.8)',
