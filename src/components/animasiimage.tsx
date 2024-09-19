@@ -1,6 +1,5 @@
 import { Loader2Icon } from 'lucide-react';
 import { useEffect, useState } from 'react'
-import { RiSettingsFill } from 'react-icons/ri';
 
 export default function ImageAnimation({ candidate }: { candidate: number }) {
   const [FotoPaslon, setFotoPaslon] = useState("")
@@ -11,19 +10,19 @@ export default function ImageAnimation({ candidate }: { candidate: number }) {
     let images: any;
     switch (candidate) {
       case 1:
-        images = import.meta.glob('/src/assets/FOTO_OSIS1/*.{png,jpg,jpeg}')
+        images = import.meta.glob('/src/assets/FOTO_OSIS1/*.webp')
         break;
 
       case 2:
-        images = import.meta.glob('/src/assets/FOTO_MPK1/*.{png,jpg,jpeg}')
+        images = import.meta.glob('/src/assets/FOTO_MPK1/*.webp')
         break;
 
       case 3:
-        images = import.meta.glob('/src/assets/FOTO_OSIS2/*.{png,jpg,jpeg}')
+        images = import.meta.glob('/src/assets/FOTO_OSIS2/*.webp')
         break;
 
       case 4:
-        images = import.meta.glob('/src/assets/FOTO_MPK2/*.{png,jpg,jpeg}')
+        images = import.meta.glob('/src/assets/FOTO_MPK2/*.webp')
         break;
 
       default:
@@ -43,19 +42,18 @@ export default function ImageAnimation({ candidate }: { candidate: number }) {
 
     loadImages();
   }, []);
-  useEffect(() => {
-    console.log(images)
-  }, [images])
-  
+
 
   useEffect(() => {
     setFotoPaslon(images[0])
+
     const interval = setInterval(() => {
       setOpacity(0)
+
       setTimeout(() => {
         const rad = Math.floor(Math.random() * images.length)
-        setFotoPaslon(images[rad])
         setOpacity(1)
+        setFotoPaslon(images[rad])
         console.log(Opacity)
       }, 5000)
     }, 10000)
