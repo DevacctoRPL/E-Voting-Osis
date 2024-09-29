@@ -51,7 +51,9 @@ const Head: React.FC = () => {
             </h3>
           </div>
           <div className="relative group flex flex-col items-center h-auto w-auto">
-            <User />
+            <div className="w-fit bg-merah-penus border border-putih-putih p-1 rounded-full">
+            <User className="text-putih-putih"/>
+            </div>
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
               <p className="font-bold">{user?.user?.Nama}</p>
               <hr className="w-[130%] border border-black mb-2" />

@@ -5,7 +5,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
-export interface UserContextType {
+interface UserContextType {
   user: User | null | undefined;
   setUser: React.Dispatch<React.SetStateAction<User | null | undefined>>;
 }
@@ -15,10 +15,9 @@ export const UserContext = createContext<UserContextType | undefined>(
 );
 
 export const UserProvider = () => {
-  const [user, setUser] = useState<User | null | undefined>();
+  const [user, setUser] = useState<User | null >();
   const nav = useNavigate()
-  function onUserSuccess(res: User | null | undefined) {
-    console.log('yez')
+  function onUserSuccess(res: User | null ) {
     setUser(res)
   }
 

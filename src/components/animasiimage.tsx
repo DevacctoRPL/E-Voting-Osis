@@ -46,23 +46,29 @@ export default function ImageAnimation({ candidate }: { candidate: number }) {
 
   useEffect(() => {
     const img = document.getElementById("imeg")
+
     setFotoPaslon(images[0])
+
     const interval = setInterval(() => {
       img?.classList.remove("opacity-1")
       img?.classList.add("opacity-0")
+
       setTimeout(() => {
+
         const rad = Math.floor(Math.random() * images.length)
         setFotoPaslon(images[rad])
         img?.classList.remove("opacity-0")
         img?.classList.add("opacity-1")
+
       }, 3500)
+
     }, 7000)
 
     return () => clearInterval(interval)
   }, [images])
 
   if (FotoPaslon === "" || images.length <= 0) {
-    return <div className="flex items-center justify-center h-[35rem]"><Loader2Icon className="animate-spin w-[25rem]" /></div>
+    return <LoaderZ h={"35rem"}/>
   }
 
   return (
@@ -72,9 +78,9 @@ export default function ImageAnimation({ candidate }: { candidate: number }) {
   )
 }
 
-export function OrgImage({Org, className}:{Org:"OSIS" | "MPK", className: string}) {
+export function OrgImage({ Org, className }: { Org: "OSIS" | "MPK", className: string }) {
   const [OrgFoto, setOrgFoto] = useState<string>()
-  useEffect(()=> {
+  useEffect(() => {
     switch (Org) {
       case "OSIS":
         setOrgFoto(FotoOSIS)
@@ -84,7 +90,11 @@ export function OrgImage({Org, className}:{Org:"OSIS" | "MPK", className: string
         setOrgFoto(FotoMPK)
         break;
     }
-  },[Org])
+  }, [Org])
 
   return <img src={OrgFoto} alt={`Foto ${Org}`} className={className} />
+}
+
+export function LoaderZ({h = "1rem"}:{h:string}) {
+  return <div className={`flex items-center justify-center h-[${h}]`}><Loader2Icon className="animate-spin w-[25rem]" /></div>
 }
