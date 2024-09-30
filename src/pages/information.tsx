@@ -6,17 +6,34 @@ import { useMutation } from '@tanstack/react-query';
 import { VoteFn } from '../api/api';
 import { UserContext } from '../context/userContext';
 import { ArrowLeft } from 'lucide-react';
-import { votedContext } from '../context/votedContext';
+import { VoteReq } from '../types/types';
 
 const Information: React.FC = () => {
+  const { id } = useParams<{ id: string }>()
+  const candidate = candidates.find((cad) => cad.id === parseInt(id as string))
   const user = useContext(UserContext)
-  const votestuff = useContext(votedContext)
-  const [status, setStatus] = useState(votestuff?.votedfs)
+
+  const [check, setCheck] = useState<string>("")
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    console.log(votestuff?.votedfs)
   }, [])
+
+  useEffect(() => {
+    if (check !== "yep") return
+    const ah = candidate?.org === "OSIS" ? "MPK" : "OSIS"
+    const data = window.sessionStorage.getItem("votedFor")
+
+    if (!data) {
+      window.sessionStorage.setItem("votedFor", candidate?.org as string)
+      nav(`/listkandidat/${ah}`)
+    } else {
+      nav('/thanks')
+      return () => {
+        window.sessionStorage.removeItem("votedFor")
+      }
+    }
+  }, [check])
 
   const nav = useNavigate()
 
@@ -25,27 +42,18 @@ const Information: React.FC = () => {
     mutationFn: VoteFn,
   })
 
-  const { id } = useParams<{ id: string }>()
-  const candidate = candidates.find((cad) => cad.id === parseInt(id as string))
 
   const handleBack = () => {
     nav(`/listkandidat/${candidate?.org}`)
   }
 
   const handleVote = () => {
-
-    VoteData.mutate({ NIU: user?.user?.NIU as string, No_Pilihan: parseInt(id as string) })
-
-    if (VoteData.isError) return
-
-    if (votestuff?.votedfs !== undefined) {
-      console.log("ada cog",votestuff?.votedfs)
-    } else {
-      const kemanacog = candidate?.org === "OSIS" ? "MPK" : "OSIS"
-      console.log("gaada bejir o")
+    const VoteRez: VoteReq = {
+      NIU: user?.user?.NIU as string,
+      No_Pilihan: candidate?.id as number
     }
-
-    votestuff?.setVotedFor(candidate?.org as "MPK" | "OSIS")
+    VoteData.mutate(VoteRez)
+    setCheck('yep')
   }
 
   return (
@@ -98,7 +106,6 @@ const Information: React.FC = () => {
           </button>
           <p onClick={() => handleVote()} className="w-fit justify-self-center text-[2rem] font-bold bg-merah-penus px-[3rem] py-[0.10rem] rounded-full border-white border-2 hover:bg-putih-putih hover:text-merah-penus hover:drop-shadow-merah-vote hover:cursor-pointer hover:scale-[110%] duration-500">Vote</p>
         </div>
-          <p>{status}</p>
       </div>
     </div>
   );

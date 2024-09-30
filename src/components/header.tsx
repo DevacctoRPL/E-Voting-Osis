@@ -11,10 +11,10 @@ const Head: React.FC = () => {
   const user = useContext(UserContext);
   const nav = useNavigate()
 
-  const {isSuccess,refetch} = useQuery({
+  const { isSuccess, refetch } = useQuery({
     queryKey: ["logoutcog"],
-    queryFn:LogoutFn,
-    enabled:false,
+    queryFn: LogoutFn,
+    enabled: false,
   })
 
   useEffect(() => {
@@ -32,11 +32,12 @@ const Head: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if(isSuccess){
-      nav('/')
+    if (isSuccess) {
+      user?.setUser(null)
+      nav('/', { replace:true})
     }
   }, [isSuccess])
-  
+
 
   return (
     <nav className="bg-transparent transition-all duration-600 ease-in-out fixed top-0 w-full h-fit z-50 p-2 border-b-[1px] border-slate-700/20 max-md:p-0">
@@ -52,12 +53,12 @@ const Head: React.FC = () => {
           </div>
           <div className="relative group flex flex-col items-center h-auto w-auto">
             <div className="w-fit bg-merah-penus border border-putih-putih p-1 rounded-full">
-            <User className="text-putih-putih"/>
+              <User className="text-putih-putih" />
             </div>
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
               <p className="font-bold">{user?.user?.Nama}</p>
               <hr className="w-[130%] border border-black mb-2" />
-              <div onClick={()=>refetch()} className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
+              <div onClick={() => refetch()} className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
                 <LogOut />
               </div>
             </aside>
@@ -70,15 +71,15 @@ const Head: React.FC = () => {
               <img src={Penus} alt="Logo" className="w-11" />
             </a>
           </div>
-            <div className="flex flex-col">
-              <h3 className="text-md font-extrabold leading-7 text-putih-putih">
-                SMK <span className="text-merah-penus">PLUS</span> PELITA NUSANTARA
-              </h3>
-              <i className="text-sm text-white leading-3">Success By Character</i>
-            </div>
+          <div className="flex flex-col">
+            <h3 className="text-md font-extrabold leading-7 text-putih-putih">
+              SMK <span className="text-merah-penus">PLUS</span> PELITA NUSANTARA
+            </h3>
+            <i className="text-sm text-white leading-3">Success By Character</i>
+          </div>
           <div className="relative group flex flex-col mt-2 items-center h-auto w-auto">
             <div className="w-fit bg-merah-penus border border-putih-putih p-1 rounded-full">
-            <User className="text-putih-putih"/>
+              <User className="text-putih-putih" />
             </div>
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
               <p className="font-bold">{user?.user?.Nama}</p>

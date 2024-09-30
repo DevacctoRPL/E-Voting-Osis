@@ -55,7 +55,6 @@ const Login: React.FC = () => {
                 NIS/NIG
               </label>
               <input type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                console.log("nis", NIS)
                 handleOnchanges("NIS", e)
               }} id="nisNig" placeholder="Masukkan NIS anda" className="w-52 md:w-full rounded-full px-3 py-2 text-laut-dalam placeholder:text-sm  focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300 max-md:w-full" required />
             </div>
@@ -65,7 +64,6 @@ const Login: React.FC = () => {
                 Kata Sandi
               </label>
               <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                console.log("pass", Password)
                 handleOnchanges("Pass", e)
               }} type="password" id="password" placeholder="Masukkan password anda" className="w-52 md:w-full rounded-full px-3 py-2 text-laut-dalam placeholder:text-sm focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300 max-md:w-full" required />
             </div>

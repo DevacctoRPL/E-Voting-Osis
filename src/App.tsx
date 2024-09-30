@@ -9,7 +9,7 @@ import Landpage from './pages/landpage';
 import Information from './pages/information';
 import ListKandidat from './pages/listKandidat';
 import Admin from './pages/adminDashboard';
-import { VoteProvider } from './context/votedContext';
+import Thanks from './pages/thanks';
 
 const App: React.FC = () => {
   const query = new QueryClient()
@@ -19,11 +19,10 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" Component={Login} />
           <Route element={<UserProvider />}>
+            <Route path="/thanks" Component={Thanks} />
             <Route path="/landpage" element={<Landpage />} />
             <Route path="/listkandidat/:org" Component={ListKandidat} />
-            <Route element={<VoteProvider />}>
-              <Route path="/information/:id" Component={Information} />
-            </Route>
+            <Route path="/information/:id" Component={Information} />
             <Route path="/votes" Component={Admin} />
           </Route>
         </Routes>

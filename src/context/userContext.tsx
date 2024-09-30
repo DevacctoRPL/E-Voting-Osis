@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, } from "react";
+import React, { createContext,  useEffect, useState, } from "react";
 import { User } from "../types/types";
 import { getCurrentUser } from "../api/api";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -21,8 +21,8 @@ export const UserProvider = () => {
     setUser(res)
   }
 
-  function onUserError() {
-    console.error('error')
+  function onUserError(err:any) {
+    console.error('error',err)
     nav('/')
   }
 
@@ -35,7 +35,6 @@ export const UserProvider = () => {
 
     try {
       getCurrentUser().then(onUserSuccess).catch(onUserError)
-      console.log("yep")
     } catch (error) {
       throw new Error(`${error}`)
     }
@@ -50,11 +49,3 @@ export const UserProvider = () => {
   )
 };
 
-export function useAuth() {
-  const user = useContext(UserContext)
-  if (!user) {
-    throw new Error("woi bangsat kutu loncat")
-  }
-
-  return user;
-}
