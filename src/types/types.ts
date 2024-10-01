@@ -20,6 +20,20 @@ export type currentUserres = {
   status: Promise<number>;
 }
 
+export type DataLiveRes = {
+  OSIS: {
+    Pemilih_1: number,
+    Pemilih_2: number,
+    Jumlah_Vote: number,
+  },
+  MPK: {
+    Pemilih_1: number,
+    Pemilih_2: number,
+    Jumlah_Vote: number,
+  },
+  Jumlah_User: number
+}
+
 export type apicalltype = (path:string,data?:any) => Promise<any>
 export type candidate = {
   id:number,

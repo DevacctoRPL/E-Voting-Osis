@@ -1,7 +1,7 @@
 // src/pages/Login.tsx
 import { useMutation } from '@tanstack/react-query';
 import Voting from '/assets/Voting-amico.svg';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginFn } from '../api/api';
 import { UserContext } from '../context/userContext';
@@ -10,6 +10,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
   const [NIS, setNIS] = useState<string>("")
   const [Password, setPassword] = useState<number>(0)
+  const [ErrorMsg, setErrorMsg] = useState<string>()
   const user = useContext(UserContext)
 
   const PostLoginData = useMutation({
@@ -19,6 +20,26 @@ const Login: React.FC = () => {
       navigate("/landpage")
     },
   })
+
+  useEffect(() => {
+    if (!PostLoginData.isError) return
+    // eslint-disable-next-line
+    const res = PostLoginData.error.response.data.message
+    switch (res) {
+      case "password incorrect":
+        setErrorMsg("Password yang dimasukan salah")
+        break;
+      case "user not found":
+        setErrorMsg("User tidak ketemu")
+        break;
+      case "you have voted all":
+        setErrorMsg("Anda telah melakukan voting.")
+        break;
+      default:
+        setErrorMsg("Ada permasalahan di server")
+        break;
+    }
+  }, [PostLoginData.isError])
 
   const handleLogin = () => {
     PostLoginData.mutate({ NIU: NIS, password: Password })
@@ -44,11 +65,9 @@ const Login: React.FC = () => {
         </div>
         <div id="Form" className="h-fit md:w-[45%] md:flex flex-col items-start justify-center">
           <div className="mb-6 md:w-full grow flex flex-col md:justify-center gap-3">
-            <h1 className="text-xl text-nowrap md:text-6xl text-white font-semibold md:mb-10 text-center items-center md:text-left mt-3">
+            <h1 className="text-xl text-nowrap md:text-6xl md:text-wrap text-white font-semibold md:mb-5 text-center items-center md:text-left mt-3">
               <span className="text-merah-penus">PENUS</span> E-VOTING
             </h1>
-
-            <h2 className="md:text-4xl text-white font-semibold md:font-bold md:ml-2 text-center md:text-left mt-3 md:mt-1">Masuk</h2>
 
             <div className="mb-3">
               <label htmlFor="nisNig" className="block text-putih-putih text-sm md:text-2xl font-medium ml-2 mb-2 text-left">
@@ -68,14 +87,15 @@ const Login: React.FC = () => {
               }} type="password" id="password" placeholder="Masukkan password anda" className="w-52 md:w-full rounded-full px-3 py-2 text-laut-dalam placeholder:text-sm focus:outline-none focus:ring-red-700 focus:ring-2 transition duration-300 max-md:w-full" required />
             </div>
 
-            <div className="md:mt-6 md:items-start md:justify-start w-full flex justify-center">
+            <div className="md:items-center md:gap-8 md:justify-center w-full flex flex-col justify-center">
+            {ErrorMsg !== "" ? <p className="text-red-500">{ErrorMsg}</p> : undefined}
               <button onClick={() => handleLogin()} className="w-1/2 bg-merah-penus text-center text-white font-bold py-2 px-4 rounded-full hover:drop-shadow-merah-penus-bayangan hover:scale-105 transition-all duration-300">
                 {PostLoginData.isPending ? "Logging in" : "Masuk"}
               </button>
             </div>
           </div>
 
-          <h5 className="text-center my-10 md:relative text-white text-xs md:text-lg font-semibold md:mb-8 md:text-putih-putih md:text-left">
+          <h5 className="text-center my-10 md:relative text-white text-xs md:text-lg font-semibold md:mb-8 md:text-putih-putih md:text-center">
             Powered by <span className=" text-penus bg-white rounded-full font-bold md:text-merah-penus p-1">DEVACCTO RPL</span>
           </h5>
         </div>
