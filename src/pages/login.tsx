@@ -1,10 +1,11 @@
 // src/pages/Login.tsx
 import { useMutation } from '@tanstack/react-query';
 import Voting from '/assets/Voting-amico.svg';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginFn } from '../api/api';
 import { UserContext } from '../context/userContext';
+import axios from 'axios';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -19,30 +20,21 @@ const Login: React.FC = () => {
       user?.setUser(data)
       navigate("/landpage")
     },
+    onError: (error: any) => {
+      if (axios.isAxiosError(error) && error.response) {
+        const { data } = error.response;
+        if (data) {
+          setErrorMsg(data.message); 
+        }
+      } else {
+        setErrorMsg("An unexpected error occurred."); // Fallback message
+      }
+    },
   })
 
-  useEffect(() => {
-    if (!PostLoginData.isError) return
-    // eslint-disable-next-line
-    const res = PostLoginData.error.response.data.message
-    switch (res) {
-      case "password incorrect":
-        setErrorMsg("Password yang dimasukan salah")
-        break;
-      case "user not found":
-        setErrorMsg("User tidak ketemu")
-        break;
-      case "you have voted all":
-        setErrorMsg("Anda telah melakukan voting.")
-        break;
-      default:
-        setErrorMsg("Ada permasalahan di server")
-        break;
-    }
-  }, [PostLoginData.isError])
 
   const handleLogin = () => {
-    PostLoginData.mutate({ NIU: NIS, password: Password })
+    PostLoginData.mutateAsync({ NIU: NIS, password: Password })
   };
 
   const handleOnchanges = (type: "Pass" | "NIS", e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,7 +80,7 @@ const Login: React.FC = () => {
             </div>
 
             <div className="md:items-center md:gap-8 md:justify-center w-full flex flex-col justify-center">
-            {ErrorMsg !== "" ? <p className="text-red-500">{ErrorMsg}</p> : undefined}
+              {ErrorMsg !== "" ? <p className="text-red-500">{ErrorMsg}</p> : undefined}
               <button onClick={() => handleLogin()} className="w-1/2 bg-merah-penus text-center text-white font-bold py-2 px-4 rounded-full hover:drop-shadow-merah-penus-bayangan hover:scale-105 transition-all duration-300">
                 {PostLoginData.isPending ? "Logging in" : "Masuk"}
               </button>

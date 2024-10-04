@@ -1,51 +1,23 @@
-import React, { createContext,  useEffect, useState, } from "react";
+// src/context/UserContext.tsx
+import { createContext, useState, ReactNode} from "react";
 import { User } from "../types/types";
-import { getCurrentUser } from "../api/api";
-import { Outlet, useNavigate } from "react-router-dom";
-import Header from "../components/header";
-import Footer from "../components/footer";
 
 interface UserContextType {
-  user: User | null | undefined;
-  setUser: React.Dispatch<React.SetStateAction<User | null | undefined>>;
+  user: User | null;
+  setUser: (user: User | null) => void;
 }
 
-export const UserContext = createContext<UserContextType | undefined>(
-  undefined
-);
+export const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export const UserProvider = () => {
-  const [user, setUser] = useState<User | null >();
-  const nav = useNavigate()
-  function onUserSuccess(res: User | null ) {
-    setUser(res)
-  }
+interface UserProviderProps {
+  children: ReactNode;
+}
 
-  function onUserError(err:any) {
-    console.error('error',err)
-    nav('/')
-  }
-
-  useEffect(() => {
-    if (user !== null && user !== undefined) {
-      return () => {
-        console.log("hi")
-      }
-    }
-
-    try {
-      getCurrentUser().then(onUserSuccess).catch(onUserError)
-    } catch (error) {
-      throw new Error(`${error}`)
-    }
-  }, [user])
-
+export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
+  const [user, setUser] = useState<User | null>(null);
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Header />
-      <Outlet />
-      <Footer />
+      {children}
     </UserContext.Provider>
-  )
+  );
 };
-

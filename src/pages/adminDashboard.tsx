@@ -7,7 +7,6 @@ import Chart, { Props } from "react-apexcharts";
 import { OrgImage } from "../components/animasiimage";
 import { useQuery } from "@tanstack/react-query";
 import { datares } from "../api/api";
-import { DataLiveRes } from "../types/types";
 
 type DPMaker = (Paslons: string[], Colors: string[], series: number[]) => Props
 
@@ -51,12 +50,14 @@ const MakeDonutProps: DPMaker = (Paslons, Colors, series) => {
 }
 
 const Admin: React.FC = () => {
+  
   const [ovd, setovd] = useState<number[]>([0,0])
   const [omd, setomd] = useState<number[]>([0,0])
 
   const { data, isRefetching } = useQuery({
     queryFn: datares,
     queryKey: ["VoteData"],
+    gcTime: 2000,
     refetchInterval: 5000,
   })
 
@@ -120,7 +121,6 @@ const Admin: React.FC = () => {
           </div>
         </div>
       </div>
-      <p>{isRefetching ? "refetching" : "yep"}</p>
     </>
   )
 };

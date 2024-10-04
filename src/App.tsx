@@ -10,23 +10,26 @@ import Information from './pages/information';
 import ListKandidat from './pages/listKandidat';
 import Admin from './pages/adminDashboard';
 import Thanks from './pages/thanks';
+import { RootLayout } from './components/evlayout';
 
 const App: React.FC = () => {
   const query = new QueryClient()
   return (
     <QueryClientProvider client={query}>
-      <Router>
-        <Routes>
-          <Route path="/" Component={Login} />
-          <Route element={<UserProvider />}>
-            <Route path="/thanks" Component={Thanks} />
-            <Route path="/landpage" element={<Landpage />} />
-            <Route path="/listkandidat/:org" Component={ListKandidat} />
-            <Route path="/information/:id" Component={Information} />
-            <Route path="/votes" Component={Admin} />
-          </Route>
-        </Routes>
-      </Router>
+      <UserProvider>
+        <Router>
+          <Routes>
+            <Route path="/" Component={Login} />
+            <Route element={<RootLayout />}>
+              <Route path="/thanks" Component={Thanks} />
+              <Route path="/landpage" element={<Landpage />} />
+              <Route path="/listkandidat/:org" Component={ListKandidat} />
+              <Route path="/information/:id" Component={Information} />
+              <Route path="/votes" Component={Admin} />
+            </Route>
+          </Routes>
+        </Router>
+      </UserProvider>
     </QueryClientProvider>
   );
 };

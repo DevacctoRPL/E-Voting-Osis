@@ -39,6 +39,7 @@ const Information: React.FC = () => {
 
   const VoteData = useMutation({
     mutationKey: ['VoteCog'],
+    gcTime: 0,
     mutationFn: VoteFn,
   })
 
@@ -101,7 +102,7 @@ const Information: React.FC = () => {
           </ol>
         </div>
         <div className="w-full self-start relative flex justify-center mt-[2rem] items-center p-3">
-          <button onClick={handleBack} className="underline absolute right-[75%] md:right-[65%] top-[25%] p-2 border border-white bg-merah-penus rounded-full text-white hover:text-merah-penus hover:bg-putih-putih hover:border-black">
+          <button onClick={handleBack} className="underline absolute right-[80%] md:right-[70%] top-[25%] p-2 border border-white bg-merah-penus rounded-full text-white hover:text-merah-penus hover:bg-putih-putih hover:border-black">
             {VoteData.isPending ? <LoaderZ h={"2rem"} /> : <ArrowLeft />}
           </button>
           <p onClick={() => handleVote()} className="w-fit justify-self-center text-[2rem] font-bold bg-merah-penus px-[3rem] py-[0.10rem] rounded-full border-white border-2 hover:bg-putih-putih hover:text-merah-penus hover:drop-shadow-merah-vote hover:cursor-pointer hover:scale-[110%] duration-500">Vote</p>

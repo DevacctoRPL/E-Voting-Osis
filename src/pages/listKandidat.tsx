@@ -48,10 +48,10 @@ const ListKandidat: React.FC = () => {
 
         <div className="flex justify-center md:mt-8 ">
           {cands.map((candidate, idx) => {
-            return <div key={candidate.id} className="flex flex-col items-center">
+            return <div key={candidate.id} className="flex flex-col gap-5 items-center">
               <div
                 onClick={() => pilih(candidate.id.toString())}
-                className="drop-shadow-putih-cahaya flex items-center bg-gradient-to-t from-merah-gelap-penus to-merah-penus to-40% rounded-lg justify-center px-1 w-[75%] md:w-[50%] border-solid border-2 hover:drop-shadow-putih-cahaya-besar hover:scale-105 duration-300"
+                className=" drop-shadow-putih-cahaya flex items-center bg-gradient-to-t from-merah-gelap-penus to-merah-penus to-40% rounded-lg justify-center px-1 w-[70%] md:w-[50%] border-solid border-2 hover:drop-shadow-putih-cahaya-besar hover:scale-105 duration-300"
               >
                 <div
                   id="dot"
@@ -62,17 +62,17 @@ const ListKandidat: React.FC = () => {
                   </h3>
                 </div>
 
-                  <img
-                    src={FotoPaslons[idx]}
-                    alt={candidate.nama_ketua}
-                    className="cursor-pointer object-cover rounded-md w-full h-full"
-                  />
+                <img
+                  src={FotoPaslons[idx]}
+                  alt={candidate.nama_ketua}
+                  className="cursor-pointer object-cover rounded-md w-full"
+                />
               </div>
               {/* Nama kandidat*/}
-              <div className="mt-2 w-32 text-center">
-                <p className="text-sm md:text-xl text-white break-words">
-                  {candidate.nama_ketua}
-                </p>
+              <div className="w-fit text-center md:flex text-sm md:text-2xl px-4 flex-col items-center gap-5">
+                <p className="font-bold">{candidate.nama_ketua}</p>
+                <p>&</p>
+                <p className="font-bold">{candidate.nama_wakil}</p>
               </div>
             </div>
           })}

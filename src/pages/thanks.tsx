@@ -8,6 +8,7 @@ const Thanks: React.FC = () => {
   const user = useContext(UserContext);
   const { refetch } = useQuery({
     queryKey: ["logoutcog"],
+    gcTime: 0,
     queryFn: LogoutFn,
     enabled: false,
   })

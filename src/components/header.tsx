@@ -12,10 +12,16 @@ const Head: React.FC = () => {
   const nav = useNavigate()
 
   const { isSuccess, refetch } = useQuery({
-    queryKey: ["logoutcog"],
+    queryKey: ["LogoutFn"],
+    gcTime: 0,
     queryFn: LogoutFn,
     enabled: false,
   })
+
+  useEffect(() => {
+    console.log(user?.user)
+  }, [user])
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,11 +62,9 @@ const Head: React.FC = () => {
               <User className="text-putih-putih" />
             </div>
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
-              <p className="font-bold">{user?.user?.Nama}</p>
+              <p className="font-bold">{user?.user?.NIU}</p>
               <hr className="w-[130%] border border-black mb-2" />
-              <div onClick={() => refetch()} className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
-                <LogOut />
-              </div>
+              <LogOut className="hover:cursor-pointer" onClick={()=> refetch()} />
             </aside>
           </div>
         </div>
