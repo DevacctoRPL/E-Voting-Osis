@@ -1,14 +1,15 @@
-import React, { useContext, useEffect } from "react";
+import React, {  useEffect } from "react";
 
 import Penus from "/assets/penus.png";
-import { UserContext } from "../context/userContext";
 import { LogOut, User } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { LogoutFn } from "../api/api";
 import { useNavigate } from "react-router-dom";
+import { useSessionStorage } from "usehooks-ts";
+import {User as usert} from '../types/types.ts' 
 
 const Head: React.FC = () => {
-  const user = useContext(UserContext);
+  const [user,_,removeUser] = useSessionStorage<usert | null>('user',null)
   const nav = useNavigate()
 
   const { isSuccess, refetch } = useQuery({
@@ -17,12 +18,9 @@ const Head: React.FC = () => {
     queryFn: LogoutFn,
     enabled: false,
   })
-
-  useEffect(() => {
-    console.log(user?.user)
-  }, [user])
-  
-
+  useEffect(()=>{
+    console.log(user)
+    },[user])
   useEffect(() => {
     const handleScroll = () => {
       const nav = document.querySelector("nav");
@@ -39,7 +37,7 @@ const Head: React.FC = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      user?.setUser(null)
+      removeUser()
       nav('/', { replace:true})
     }
   }, [isSuccess])
@@ -62,7 +60,7 @@ const Head: React.FC = () => {
               <User className="text-putih-putih" />
             </div>
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
-              <p className="font-bold">{user?.user?.NIU}</p>
+              <p className="font-bold">{user?.NIU}</p>
               <hr className="w-[130%] border border-black mb-2" />
               <LogOut className="hover:cursor-pointer" onClick={()=> refetch()} />
             </aside>
@@ -86,7 +84,7 @@ const Head: React.FC = () => {
               <User className="text-putih-putih" />
             </div>
             <aside className="flex flex-col items-center overflow-hidden bg-putih-putih max-h-0 top-14 rounded-xl absolute group-hover:max-h-60 group-hover:px-6 group-hover:py-2 duration-500 transition-all ease-in-out">
-              <p className="font-bold">{user?.user?.Nama}</p>
+              <p className="font-bold">{user?.Nama}</p>
               <hr className="w-[130%] border border-black mb-2" />
               <div className="flex w-[140%] items-center gap-2 hover:cursor-pointer">
                 <img alt="hai" className="w-[20%] scale-x-[-1]" />

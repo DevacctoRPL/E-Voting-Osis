@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
-import React, { useContext, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { LogoutFn } from '../api/api'
 import { useNavigate } from 'react-router-dom'
-import { UserContext } from '../context/userContext'
+import { useSessionStorage } from 'usehooks-ts'
 
 const Thanks: React.FC = () => {
-  const user = useContext(UserContext);
+  const [_,a,RemoveUser] = useSessionStorage('user',null)
   const { refetch } = useQuery({
     queryKey: ["logoutcog"],
     gcTime: 0,
@@ -18,7 +18,8 @@ const Thanks: React.FC = () => {
     const countdownInterval = setInterval(() => {
       setCounter((prevC) => {
         if (prevC === 0) {
-          user?.setUser(null)
+          a(null)
+          RemoveUser()
           refetch()
           clearInterval(countdownInterval)
           nav('/', { replace: true })

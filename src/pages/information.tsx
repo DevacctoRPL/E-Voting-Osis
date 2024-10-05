@@ -1,17 +1,18 @@
-import React, { useContext, useEffect, useState, } from 'react';
+import React, {  useEffect, useState, } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { candidates } from '../utils/candidates';
 import ImageAnimation, { LoaderZ, OrgImage } from '../components/animasiimage';
 import { useMutation } from '@tanstack/react-query';
 import { VoteFn } from '../api/api';
-import { UserContext } from '../context/userContext';
 import { ArrowLeft } from 'lucide-react';
-import { VoteReq } from '../types/types';
+import { User, VoteReq } from '../types/types';
+import { useSessionStorage } from 'usehooks-ts';
 
 const Information: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const candidate = candidates.find((cad) => cad.id === parseInt(id as string))
-  const user = useContext(UserContext)
+  const [user] = useSessionStorage<User | null>('user',null)
+
 
   const [check, setCheck] = useState<string>("")
 
@@ -20,6 +21,7 @@ const Information: React.FC = () => {
   }, [])
 
   useEffect(() => {
+    console.log(user)
     if (check !== "yep") return
     const ah = candidate?.org === "OSIS" ? "MPK" : "OSIS"
     const data = window.sessionStorage.getItem("votedFor")
@@ -50,7 +52,7 @@ const Information: React.FC = () => {
 
   const handleVote = () => {
     const VoteRez: VoteReq = {
-      NIU: user?.user?.NIU as string,
+      NIU: user?.NIU as string,
       No_Pilihan: candidate?.id as number
     }
     VoteData.mutate(VoteRez)

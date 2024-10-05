@@ -2,7 +2,7 @@ import axios from "axios";
 import { apicalltype } from "../types/types";
 
 const apiclient = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "/api",
   headers: {
     Accept: "application/json",
   },

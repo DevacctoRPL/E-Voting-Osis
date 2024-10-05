@@ -1,23 +1,24 @@
 // src/pages/Login.tsx
 import { useMutation } from '@tanstack/react-query';
 import Voting from '/assets/Voting-amico.svg';
-import React, { useContext, useState } from 'react';
+import React, {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginFn } from '../api/api';
-import { UserContext } from '../context/userContext';
 import axios from 'axios';
+import { useSessionStorage } from 'usehooks-ts';
+import { User } from '../types/types';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [NIS, setNIS] = useState<string>("")
   const [Password, setPassword] = useState<number>(0)
   const [ErrorMsg, setErrorMsg] = useState<string>()
-  const user = useContext(UserContext)
-
+  const [_,setUser,] = useSessionStorage<User | null>('user',null)
   const PostLoginData = useMutation({
     mutationFn: LoginFn,
     onSuccess(data) {
-      user?.setUser(data)
+      console.log(data)
+      setUser(data)
       navigate("/landpage")
     },
     onError: (error: any) => {

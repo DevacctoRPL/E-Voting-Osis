@@ -1,29 +1,22 @@
 import Header from './header'
 import { Outlet, useNavigate } from 'react-router-dom'
 import Footer from './footer'
-import { useContext, useEffect } from 'react'
-import { UserContext } from '../context/userContext'
+import {  useEffect } from 'react'
 import { getCurrentUser } from '../api/api'
+import { useSessionStorage } from 'usehooks-ts'
 import { User } from '../types/types'
 
 export const RootLayout = () => {
   const nav = useNavigate()
-  const user = useContext(UserContext)
+  const [data, setdata, removeData] = useSessionStorage<User | null>('user', null)
 
   useEffect(() => {
-
-    function handleSuccess(data:User){
-      user?.setUser(data)
-    }
-
-    function handleError(){
-      nav('/')
-      user?.setUser(null)
-    }
-
     try {
-      getCurrentUser().then(handleSuccess).catch(handleError)
+      getCurrentUser().then((d) => {setdata(d); console.log(d)})
+      console.log(data)
     } catch (error) {
+      removeData()
+      nav('/')
     }
   }, [])
 
