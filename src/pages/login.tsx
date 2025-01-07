@@ -1,7 +1,7 @@
 // src/pages/Login.tsx
 import { useMutation } from '@tanstack/react-query';
 import Voting from '/assets/Voting-amico.svg';
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginFn } from '../api/api';
 import axios from 'axios';
@@ -13,19 +13,26 @@ const Login: React.FC = () => {
   const [NIS, setNIS] = useState<string>("")
   const [Password, setPassword] = useState<number>(0)
   const [ErrorMsg, setErrorMsg] = useState<string>()
-  const [_,setUser,] = useSessionStorage<User | null>('user',null)
+  const [_, setUser, RemoveUser] = useSessionStorage<User | null>('user', null)
+
+  useEffect(() => {
+    RemoveUser();
+  }, [])
+
   const PostLoginData = useMutation({
     mutationFn: LoginFn,
     onSuccess(data) {
       console.log(data)
-      setUser(data)
+      const nData = { ...data, Password: parseInt(data.Password) }
+      console.log(nData, "ndata")
+      setUser(nData)
       navigate("/landpage")
     },
     onError: (error: any) => {
       if (axios.isAxiosError(error) && error.response) {
         const { data } = error.response;
         if (data) {
-          setErrorMsg(data.message); 
+          setErrorMsg(data.message);
         }
       } else {
         setErrorMsg("An unexpected error occurred."); // Fallback message

@@ -1,6 +1,5 @@
 import Penus from '/assets/penus.png';
 
-
 const Footer: React.FC = () => {
 
   return (

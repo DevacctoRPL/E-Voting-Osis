@@ -17,13 +17,13 @@ const App: React.FC = () => {
     <QueryClientProvider client={query}>
       <Router>
         <Routes>
-          <Route element={<RootLayout />}>
           <Route path="/" Component={Login} />
-          <Route path="/thanks" Component={Thanks} />
-          <Route path="/landpage" element={<Landpage />} />
-          <Route path="/listkandidat/:org" Component={ListKandidat} />
-          <Route path="/information/:id" Component={Information} />
-          <Route path="/votes" Component={Admin} />
+          <Route element={<RootLayout />}>
+            <Route path="/thanks" Component={Thanks} />
+            <Route path="/landpage" element={<Landpage />} />
+            <Route path="/listkandidat/:org" Component={ListKandidat} />
+            <Route path="/information/:id" Component={Information} />
+            <Route path="/votes" Component={Admin} />
           </Route>
         </Routes>
       </Router>

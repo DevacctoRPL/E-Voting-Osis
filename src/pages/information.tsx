@@ -1,4 +1,4 @@
-import React, {  useEffect, useState, } from 'react';
+import React, { useEffect, useState, } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { candidates } from '../utils/candidates';
 import ImageAnimation, { LoaderZ, OrgImage } from '../components/animasiimage';
@@ -11,7 +11,7 @@ import { useSessionStorage } from 'usehooks-ts';
 const Information: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const candidate = candidates.find((cad) => cad.id === parseInt(id as string))
-  const [user] = useSessionStorage<User | null>('user',null)
+  const [user] = useSessionStorage<User | null>('user', null)
 
 
   const [check, setCheck] = useState<string>("")
@@ -56,8 +56,15 @@ const Information: React.FC = () => {
       No_Pilihan: candidate?.id as number
     }
     VoteData.mutate(VoteRez)
-    setCheck('yep')
   }
+
+  useEffect(() => {
+    if (VoteData.isSuccess) {
+      setCheck("yep")
+    } else if (VoteData.isError) {
+
+    }
+  }, [VoteData.isSuccess])
 
   return (
     <div className="w-full h-full md:flex md:flex-row my-[8rem] font-poppins text-white justify-between items-center lg:items-start lg:gap-12 lg:justify-center">

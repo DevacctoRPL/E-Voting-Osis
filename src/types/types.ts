@@ -2,8 +2,7 @@ export type LoginUserReq = {
   NIU: string,
   password: number
 }
-
-export type VoteReq ={
+export type VoteReq = {
   No_Pilihan: number,
   NIU: string,
 }
@@ -34,10 +33,11 @@ export type DataLiveRes = {
   Jumlah_User: number
 }
 
-export type apicalltype = (path:string,data?:any) => Promise<any>
+
+export type apicalltype = (path: string, data?: any) => Promise<any>
 export type candidate = {
-  id:number,
-  nopil:number,
+  id: number,
+  nopil: number,
   org: "OSIS" | "MPK",
   nama_ketua: string,
   nama_wakil: string,

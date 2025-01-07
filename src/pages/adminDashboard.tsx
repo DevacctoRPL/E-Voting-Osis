@@ -50,9 +50,9 @@ const MakeDonutProps: DPMaker = (Paslons, Colors, series) => {
 }
 
 const Admin: React.FC = () => {
-  
-  const [ovd, setovd] = useState<number[]>([0,0])
-  const [omd, setomd] = useState<number[]>([0,0])
+
+  const [VOD, setVOD] = useState<number[]>([0, 0])
+  const [VMD, setVMD] = useState<number[]>([0, 0])
 
   const { data, isRefetching } = useQuery({
     queryFn: datares,
@@ -62,18 +62,12 @@ const Admin: React.FC = () => {
   })
 
   useEffect(() => {
-    if (!data) return
-    console.log(data.OSIS.Pemilih_1)
-    const ovd = [data.OSIS.Pemilih_1, data.OSIS.Pemilih_2] as number[]
-    const mvd = [data.MPK.Pemilih_1, data.MPK.Pemilih_2] as number[]
-    setovd(ovd)
-    setomd(mvd)
-  }, [isRefetching])
-  
+    console.log(data)
+  }, [data, isRefetching])
 
   const Paslons = ["Paslon 01", "Paslon 02"]
-  const chartMPK = MakeDonutProps(Paslons, ["#6D1408", "#D9D9D9"], ovd)
-  const chartOSIS = MakeDonutProps(Paslons, ["#FFF", "#000"], omd)
+  const chartMPK = MakeDonutProps(Paslons, ["#D32710", "#23b2cf"], VMD)
+  const chartOSIS = MakeDonutProps(Paslons, ["#999999", "#A61603"], VOD)
 
   return (
     <>
